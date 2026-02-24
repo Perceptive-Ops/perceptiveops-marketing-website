@@ -29,14 +29,12 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
     >
       <div
-        className={`w-full max-w-6xl flex items-center justify-between h-14 px-6 rounded-full transition-all duration-300 ${
-          scrolled
-            ? "bg-background/90 backdrop-blur-xl border border-border shadow-lg"
-            : "bg-background/60 backdrop-blur-md border border-border/50"
+        className={`w-full max-w-6xl flex items-center justify-between h-16 px-6 rounded-full transition-all duration-300 bg-[hsl(240_10%_8%)] border border-white/10 ${
+          scrolled ? "shadow-lg backdrop-blur-xl" : "backdrop-blur-md"
         }`}
       >
         <a href="#" className="flex items-center gap-2 shrink-0">
-          <img src={logo} alt="Perceptive Ops" className="h-7 w-auto" />
+          <img src={logo} alt="Perceptive Ops" className="h-20 w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -45,7 +43,7 @@ const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-white/60 hover:text-white transition-colors"
             >
               {link.label}
             </a>
@@ -59,7 +57,7 @@ const Navbar = () => {
 
         {/* Mobile menu toggle */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -72,14 +70,14 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-20 left-4 right-4 md:hidden bg-background/95 backdrop-blur-xl border border-border rounded-2xl px-6 py-4 shadow-xl"
+          className="absolute top-20 left-4 right-4 md:hidden bg-[hsl(240_10%_8%/0.95)] backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4 shadow-xl"
         >
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="block py-3 text-sm font-medium text-white/60 hover:text-white transition-colors"
             >
               {link.label}
             </a>
