@@ -45,9 +45,12 @@ const Services = () => {
           className="text-center mb-16"
         >
           <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">What We Do</p>
-          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight">
-            End-to-End AI Services
+          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4">
+            AI-Powered Services Built for <span className="gradient-text">Real Impact</span>
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            From strategy to deployment — we handle the full stack of AI transformation so you can focus on growth.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -67,7 +70,10 @@ const Services = () => {
                 <ArrowUpRight size={18} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
-              <p className="text-base text-muted-foreground leading-relaxed">{s.desc}</p>
+              <p className="text-base text-muted-foreground leading-relaxed mb-4">{s.desc}</p>
+              <a href="#services" className="text-sm font-medium gradient-text inline-flex items-center gap-1 hover:opacity-80 transition-opacity">
+                Learn more <ArrowUpRight size={14} />
+              </a>
             </motion.div>
           ))}
         </div>

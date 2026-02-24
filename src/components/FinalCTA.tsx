@@ -4,7 +4,7 @@ import { ArrowRight, Mail } from "lucide-react";
 
 const FinalCTA = () => {
   return (
-    <section className="py-24 lg:py-32">
+    <section id="contact" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -17,12 +17,14 @@ const FinalCTA = () => {
             <span className="gradient-text">Intelligent?</span>
           </h2>
           <p className="text-lg text-[hsl(0_0%_100%/0.6)] mb-10 max-w-xl mx-auto">
-            Let's talk about how AI can transform your business. Book a free strategy call with our team.
+            Book a free consultation. We'll audit your operations and show you exactly where AI can save time, cut costs, and accelerate growth.
           </p>
-          <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-13 mb-8">
-            Get Free Consultation
-            <ArrowRight className="ml-2" size={18} />
-          </Button>
+          <a href="mailto:hello@perceptiveops.com">
+            <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-13 mb-8">
+              Book Your Free Consultation
+              <ArrowRight className="ml-2" size={18} />
+            </Button>
+          </a>
           <div className="flex items-center justify-center gap-2 text-[hsl(0_0%_100%/0.5)] text-sm">
             <Mail size={16} />
             <a href="mailto:hello@perceptiveops.com" className="hover:text-[hsl(0_0%_100%/0.8)] transition-colors">

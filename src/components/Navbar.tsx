@@ -8,7 +8,8 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Results", href: "#results" },
-  { label: "Case Studies", href: "#case-studies" },
+  { label: "Case Studies", href: "#cases" },
+  { label: "Testimonials", href: "#testimonials" },
 ];
 
 const Navbar = () => {
@@ -50,10 +51,12 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <Button size="sm" className="hidden md:inline-flex btn btn-primary rounded-full font-semibold text-sm px-5">
-          Free Consultation
-          <ArrowRight className="ml-1.5" size={14} />
-        </Button>
+        <a href="#contact">
+          <Button size="sm" className="hidden md:inline-flex btn btn-primary rounded-full font-semibold text-sm px-5">
+            Book a Call
+            <ArrowRight className="ml-1.5" size={14} />
+          </Button>
+        </a>
 
         {/* Mobile menu toggle */}
         <button
@@ -82,10 +85,12 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button size="sm" className="btn btn-primary rounded-full font-semibold w-full mt-2">
-            Free Consultation
-            <ArrowRight className="ml-1.5" size={14} />
-          </Button>
+          <a href="#contact">
+            <Button size="sm" className="btn btn-primary rounded-full font-semibold w-full mt-2">
+              Book a Call
+              <ArrowRight className="ml-1.5" size={14} />
+            </Button>
+          </a>
         </motion.div>
       )}
     </motion.header>

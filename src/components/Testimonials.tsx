@@ -21,7 +21,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-24 lg:py-32 border-t border-border">
+    <section id="testimonials" className="py-24 lg:py-32 border-t border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Reviews</p>
+          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Testimonials</p>
           <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight">
             What Our Clients Say
           </h2>

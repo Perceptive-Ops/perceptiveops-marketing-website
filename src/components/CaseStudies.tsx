@@ -32,7 +32,7 @@ const cases = [
   {
     title: "Enterprise AI Support Chatbot",
     desc: "Deployed a multilingual AI chatbot handling 85% of Tier-1 support tickets autonomously, saving $2M annually.",
-    tag: "Customer Support",
+    tag: "Conversational AI",
     icon: Headphones,
     image: caseSupport,
     metrics: [
@@ -45,7 +45,7 @@ const cases = [
 
 const CaseStudies = () => {
   return (
-    <section id="case-studies" className="py-24 lg:py-32">
+    <section id="cases" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,9 +54,12 @@ const CaseStudies = () => {
           className="text-center mb-16"
         >
           <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Case Studies</p>
-          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight">
-            Real Impact, Real Results
+          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4">
+            Proof in the <span className="gradient-text">Results</span>
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            See how we've helped companies automate operations, deploy AI, and scale faster.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
