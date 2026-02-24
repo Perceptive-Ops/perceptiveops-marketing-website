@@ -99,14 +99,14 @@ const Process = () => {
                 />
               </div>
               <h3
-                className={`font-display text-xl lg:text-2xl font-bold mb-3 ${
+                className={`font-display text-2xl lg:text-3xl font-bold mb-3 ${
                   step.highlighted ? "text-[hsl(var(--dark-card-foreground))]" : "text-foreground"
                 }`}
               >
                 {step.title}
               </h3>
               <p
-                className={`text-sm leading-relaxed ${
+                className={`text-base leading-relaxed ${
                   step.highlighted ? "text-[hsl(0_0%_100%/0.6)]" : "text-muted-foreground"
                 }`}
               >

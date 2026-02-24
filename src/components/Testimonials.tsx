@@ -56,7 +56,7 @@ const Testimonials = () => {
                   Verified
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">"{t.quote}"</p>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-1">"{t.quote}"</p>
               <div>
                 <div className="font-semibold text-sm">{t.name}</div>
                 <div className="text-xs text-muted-foreground">{t.role}</div>

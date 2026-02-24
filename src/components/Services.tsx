@@ -66,8 +66,8 @@ const Services = () => {
                 </div>
                 <ArrowUpRight size={18} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <h3 className="font-display text-lg font-semibold mb-2">{s.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+              <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
         </div>
