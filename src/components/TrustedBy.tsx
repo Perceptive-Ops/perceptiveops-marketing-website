@@ -4,17 +4,17 @@ const brands = [
 
 const TrustedBy = () => {
   return (
-    <section className="py-12 border-y border-border bg-card/50">
+    <section className="py-16 border-y border-border">
       <div className="container mx-auto px-4 lg:px-8">
-        <p className="text-center text-sm font-medium text-muted-foreground mb-8 uppercase tracking-widest">
+        <p className="text-center text-sm font-medium text-muted-foreground mb-10 uppercase tracking-widest">
           Trusted by innovative teams
         </p>
         <div className="relative overflow-hidden">
-          <div className="flex animate-scroll-left gap-12 w-max">
+          <div className="flex animate-scroll-left gap-16 w-max">
             {[...brands, ...brands].map((brand, i) => (
               <span
                 key={i}
-                className="text-xl font-display font-semibold text-muted-foreground/40 whitespace-nowrap select-none"
+                className="text-2xl font-display font-bold text-muted-foreground/30 whitespace-nowrap select-none"
               >
                 {brand}
               </span>
