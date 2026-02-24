@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Process", href: "#process" },
   { label: "Results", href: "#results" },
   { label: "Case Studies", href: "#cases" },
+  { label: "Tech Stack", href: "#tech" },
   { label: "Testimonials", href: "#testimonials" },
 ];
 
@@ -48,7 +49,7 @@ const Navbar = ({ onBookConsultation }: NavbarProps) => {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8 h-14 md:h-16 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
-        <a href="#" className="flex items-center gap-2 shrink-0">
+        <a href="#home" className="flex items-center gap-2 shrink-0">
           <div className="h-10 md:h-[66px] w-[210px] md:w-[600px]">
             <img
               src={logo}

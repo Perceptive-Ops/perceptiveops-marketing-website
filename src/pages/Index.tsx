@@ -22,7 +22,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div id="home" className="min-h-screen bg-background">
       <Navbar onBookConsultation={() => openConsultation("navbar")} />
       <Hero onBookConsultation={() => openConsultation("hero")} />
       <TrustedBy />

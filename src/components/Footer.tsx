@@ -10,10 +10,13 @@ const serviceLinks = [
 ];
 
 const companyLinks = [
-  { label: "About Us", href: "#" },
+  { label: "Home", href: "#home" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Results", href: "#results" },
   { label: "Case Studies", href: "#cases" },
-  { label: "Blog", href: "#" },
-  { label: "Careers", href: "#" },
+  { label: "Tech Stack", href: "#tech" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -31,7 +34,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <img src={logo} alt="Perceptive Ops" className="h-[140px] w-auto mb-4 brightness-0 invert" />
+            <a href="#home" className="inline-block">
+              <img src={logo} alt="Perceptive Ops" className="h-[140px] w-auto mb-4 brightness-0 invert" />
+            </a>
             <p className="text-sm text-[hsl(0_0%_100%/0.5)] leading-relaxed">
               AI-powered operations and automation for businesses that want to scale smarter, not harder.
             </p>
