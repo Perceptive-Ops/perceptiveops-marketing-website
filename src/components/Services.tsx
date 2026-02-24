@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Bot, Workflow, BrainCircuit, Rocket, Lightbulb, Database } from "lucide-react";
+import { Bot, Workflow, BrainCircuit, Rocket, Lightbulb, Database, ArrowUpRight } from "lucide-react";
 
 const services = [
   {
@@ -44,13 +44,13 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-primary uppercase tracking-widest mb-3">What We Do</p>
-          <h2 className="font-display text-3xl lg:text-5xl font-bold tracking-tight">
+          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">What We Do</p>
+          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight">
             End-to-End AI Services
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
@@ -58,10 +58,13 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="group relative p-6 rounded-xl border border-border bg-card hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+              className="group relative p-7 rounded-2xl border border-border bg-card hover:bg-secondary/50 hover:border-border transition-all duration-300 cursor-pointer"
             >
-              <div className="w-12 h-12 rounded-lg gradient-bg flex items-center justify-center mb-4">
-                <s.icon size={24} className="text-white" />
+              <div className="flex items-start justify-between mb-5">
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
+                  <s.icon size={22} className="text-foreground" />
+                </div>
+                <ArrowUpRight size={18} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <h3 className="font-display text-lg font-semibold mb-2">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>

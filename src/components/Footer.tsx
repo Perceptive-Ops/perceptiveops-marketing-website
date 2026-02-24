@@ -1,6 +1,15 @@
 import logo from "@/assets/perceptive-ops-logo.png";
 
-const footerLinks = [
+const serviceLinks = [
+  "AI Agent Development",
+  "Workflow Automation",
+  "Machine Learning",
+  "Product Development",
+  "AI Strategy",
+  "Data Engineering",
+];
+
+const companyLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Results", href: "#results" },
@@ -9,34 +18,58 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border py-12">
+    <footer className="dark-section py-16">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="Perceptive Ops" className="h-7 w-auto" />
+        <div className="grid md:grid-cols-4 gap-10 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <img src={logo} alt="Perceptive Ops" className="h-8 w-auto mb-4 brightness-0 invert" />
+            <p className="text-sm text-[hsl(0_0%_100%/0.5)] leading-relaxed">
+              We build AI systems that run your operations — so your team works smarter.
+            </p>
           </div>
 
-          <nav className="flex items-center gap-6">
-            {footerLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          {/* Services */}
+          <div>
+            <h4 className="text-sm font-semibold text-[hsl(var(--dark-card-foreground))] mb-4">Services</h4>
+            <ul className="space-y-2">
+              {serviceLinks.map((link) => (
+                <li key={link}>
+                  <a href="#services" className="text-sm text-[hsl(0_0%_100%/0.5)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <a
-            href="mailto:hello@perceptiveops.com"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            hello@perceptiveops.com
-          </a>
+          {/* Company */}
+          <div>
+            <h4 className="text-sm font-semibold text-[hsl(var(--dark-card-foreground))] mb-4">Company</h4>
+            <ul className="space-y-2">
+              {companyLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-[hsl(0_0%_100%/0.5)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-sm font-semibold text-[hsl(var(--dark-card-foreground))] mb-4">Contact</h4>
+            <a
+              href="mailto:hello@perceptiveops.com"
+              className="text-sm text-[hsl(0_0%_100%/0.5)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors"
+            >
+              hello@perceptiveops.com
+            </a>
+          </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center text-xs text-muted-foreground">
+        <div className="pt-8 border-t border-[hsl(0_0%_100%/0.1)] text-center text-xs text-[hsl(0_0%_100%/0.4)]">
           © 2026 Perceptive Ops. All rights reserved.
         </div>
       </div>
