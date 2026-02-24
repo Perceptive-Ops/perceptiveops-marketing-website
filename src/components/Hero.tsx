@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRef, useEffect } from "react";
 
 const stats = [
   { value: "200+", label: "AI Models Deployed" },
@@ -9,10 +10,22 @@ const stats = [
 ];
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {
+      // Autoplay blocked — video stays on poster
+    });
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video background */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
@@ -21,7 +34,7 @@ const Hero = () => {
         poster="https://images.pexels.com/videos/3129671/free-video-3129671.jpg?auto=compress&cs=tinysrgb&w=1920"
       >
         <source
-          src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
+          src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4"
           type="video/mp4"
         />
       </video>
@@ -42,12 +55,12 @@ const Hero = () => {
             AI-Powered Operations Partner
           </div>
 
-          <h1 className="font-display text-6xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[1.05] mb-8 text-white">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-8 text-white">
             We Build AI Systems<br className="hidden sm:block" /> That{" "}
             <span className="highlight-box">Run Your Operations</span>
           </h1>
 
-          <p className="text-xl lg:text-2xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg lg:text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
             We audit, automate, and optimize your business with custom AI solutions
             — so your team works smarter, scales faster, and ships with confidence.
           </p>
