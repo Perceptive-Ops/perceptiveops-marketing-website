@@ -26,15 +26,15 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-black/40 backdrop-blur-xl border-b border-white/10 shadow-lg"
+          : "bg-transparent border-b border-transparent"
+      }`}
     >
-      <div
-        className={`w-full max-w-6xl flex items-center justify-between h-16 px-6 rounded-full transition-all duration-300 bg-[hsl(240_10%_8%)] border border-white/10 ${
-          scrolled ? "shadow-lg backdrop-blur-xl" : "backdrop-blur-md"
-        }`}
-      >
+      <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-20">
         <a href="#" className="flex items-center gap-2 shrink-0">
-          <img src={logo} alt="Perceptive Ops" className="h-[140px] w-auto" />
+          <img src={logo} alt="PerceptiveOps" className="h-[140px] w-auto" />
         </a>
 
         {/* Desktop nav */}
@@ -70,7 +70,7 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-20 left-4 right-4 md:hidden bg-[hsl(240_10%_8%/0.95)] backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-4 shadow-xl"
+          className="md:hidden bg-black/80 backdrop-blur-xl border-t border-white/10 px-6 py-4"
         >
           {navLinks.map((link) => (
             <a
