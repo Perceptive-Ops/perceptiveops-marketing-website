@@ -1,67 +1,56 @@
 
 
-# Design Fixes: Purple Buttons with 3D Effect, Images, and Consistency Review
+# Hero and Header Rework: Dark Video Background
 
-## 1. Button Styling -- Solid Purple with Black Bottom Border 3D Effect
+## Overview
+Rebuild the Hero section with a full-screen dark video background and make the Navbar fully transparent so it blends seamlessly into the cinematic hero. All text and UI elements in the hero will be updated to light/white colors for legibility against the dark video.
 
-All CTA buttons across the site will be changed from `gradient-bg` (cyan-to-purple gradient) to a **solid purple** background with a thick black bottom border creating a 3D pressed-button effect.
+## Changes
 
-**New button utility class** in `src/index.css`:
-```css
-.btn-purple-3d {
-  background-color: hsl(270 60% 58%);
-  color: white;
-  border: none;
-  border-bottom: 4px solid hsl(270 60% 38%);
-  transition: all 0.15s;
-}
-.btn-purple-3d:hover {
-  border-bottom-width: 2px;
-  transform: translateY(2px);
-}
+### 1. Hero Section (`src/components/Hero.tsx`)
+- Add a full-viewport video background using a free stock video (abstract tech/AI visuals from a CDN placeholder)
+- Layer a dark overlay (`bg-black/60`) on top of the video for consistent text legibility
+- Update all text to white/light colors:
+  - Headline: white
+  - Subheadline: white with reduced opacity
+  - Badge pill: dark background with light text
+- The stats bar at the bottom retains its current structure but gets a translucent dark glass-morphism style (`bg-white/5 backdrop-blur border-white/10`)
+- The video element will be `position: absolute`, cover the full section, `object-fit: cover`, muted, autoplay, loop
+
+### 2. Navbar (`src/components/Navbar.tsx`)
+- Change from solid dark pill to a fully transparent background by default
+- When scrolled, transition to a frosted glass effect (`bg-black/40 backdrop-blur-xl`) so content underneath remains somewhat visible
+- Nav links stay white (already white/60 with hover to white -- this works perfectly on transparent)
+- The logo is already designed for dark backgrounds so it will remain legible
+- Keep the sticky/fixed behavior
+- Remove the rounded-full pill container or make it transparent so it merges with the hero
+
+### 3. Index CSS (`src/index.css`)
+- No major changes needed; existing dark theme utilities support this
+
+## Technical Details
+
+### Video Element Structure
+```text
+<section> (relative, min-h-screen or similar tall hero)
+  +-- <video> (absolute, inset-0, object-cover, autoplay, muted, loop)
+  +-- <div> (absolute overlay, bg-black/60)
+  +-- <div> (relative z-10, all hero content)
+</section>
 ```
 
-**Files affected**: `Hero.tsx`, `Navbar.tsx`, `Process.tsx`, `FinalCTA.tsx` -- replace `gradient-bg border-0` with `btn-purple-3d` on every "Free Consultation" button.
+### Placeholder Video
+Will use a free stock video URL (e.g., from Pexels CDN or similar) showing abstract dark tech visuals. This can be swapped later with a branded video.
 
-## 2. Add Images Throughout
+### Navbar Transparency Logic
+- Default state: `bg-transparent border-transparent`
+- Scrolled state: `bg-black/40 backdrop-blur-xl border-white/10`
+- This creates a clean seamless look when at top of page, and readable nav when scrolling over lighter sections
 
-Currently, placeholder areas (case studies, process intro) show empty colored boxes. Replace with meaningful visual content:
-
-- **Process intro block** (`Process.tsx`): Replace the solid gradient box with a more detailed illustration composition -- a layered layout with multiple lucide icons (BrainCircuit, Workflow, Database, Rocket) arranged in a grid pattern with gradient overlays, simulating a dashboard/workflow visual.
-
-- **Case Studies image areas** (`CaseStudies.tsx`): Replace the single metric text with richer compositions -- each case study gets a themed icon (Microscope for Healthcare, ShoppingCart for E-Commerce, MessageSquare for Customer Support) displayed large on a gradient background alongside the metric badge.
-
-- **Services cards** (`Services.tsx`): Add gradient-tinted icon backgrounds to make icons more prominent -- each icon wrapper gets a subtle purple-tinted background.
-
-- **Hero stats badges** (`Hero.tsx`): Style the star and A+ badges with purple accents instead of plain dark circles.
-
-## 3. Design Consistency Fixes
-
-Issues identified across the site:
-
-- **Highlight box color**: Currently purple (correct). Keep as-is.
-- **Navbar button**: Uses `gradient-bg` (gradient) -- change to solid purple `btn-purple-3d` to match.
-- **FinalCTA button**: Same gradient issue -- switch to `btn-purple-3d`.
-- **Process intro button**: Same fix.
-- **CheckCircle icons** in Results table use cyan (`--gradient-start`) -- change to purple (`--gradient-end`) for consistency.
-- **BadgeCheck** in Testimonials uses cyan -- change to purple.
-- **TrustedBy brand text**: Very faint at `text-muted-foreground/30` -- keep as-is (intentional subtle look).
-- **Phase card hover arrow color**: Uses white/40 on hover -- change the line color to purple accent on hover instead of white.
-
-## Files to Modify
-
-| File | Changes |
-|------|---------|
-| `src/index.css` | Add `.btn-purple-3d` utility class |
-| `src/components/Hero.tsx` | Purple 3D button, purple badge accents |
-| `src/components/Navbar.tsx` | Purple 3D button (both desktop and mobile) |
-| `src/components/Process.tsx` | Purple 3D button, richer intro illustration, hover arrow color |
-| `src/components/FinalCTA.tsx` | Purple 3D button |
-| `src/components/Results.tsx` | CheckCircle icons to purple |
-| `src/components/Testimonials.tsx` | BadgeCheck icon to purple |
-| `src/components/CaseStudies.tsx` | Richer image areas with themed icons |
-| `src/components/Services.tsx` | Purple-tinted icon backgrounds |
-
-## No new dependencies needed
-All changes use existing Tailwind, Framer Motion, and Lucide icons.
+### Color Updates in Hero
+- Headline: `text-white`
+- Subtitle: `text-white/70`
+- Badge: `bg-white/10 border-white/10 text-white/80`
+- Stats bar: `bg-white/5 backdrop-blur-md border-white/10` with white text
+- CTA button: keeps the purple 3D style (already high contrast)
 
