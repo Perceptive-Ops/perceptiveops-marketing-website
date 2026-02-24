@@ -27,18 +27,18 @@ const Hero = () => {
             AI-Powered Operations Partner
           </div>
 
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-8">
+          <h1 className="font-display text-6xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[1.05] mb-8">
             We Build AI Systems<br className="hidden sm:block" /> That{" "}
             <span className="highlight-box">Run Your Operations</span>
           </h1>
 
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
             We audit, automate, and optimize your business with custom AI solutions
             — so your team works smarter, scales faster, and ships with confidence.
           </p>
 
           <div className="flex justify-center mb-20">
-            <Button size="lg" className="bg-primary text-primary-foreground rounded-full font-semibold text-base px-8 h-14 uppercase tracking-wide">
+            <Button size="lg" className="gradient-bg border-0 text-primary-foreground rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
               Free Consultation
               <span className="ml-3 w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center">
                 <ArrowRight size={16} />
@@ -84,7 +84,7 @@ const Hero = () => {
             <div className="flex-1 grid grid-cols-3 divide-x divide-border">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center px-4">
-                  <div className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-1">
+                  <div className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-1">
                     {stat.value}
                   </div>
                   <div className="text-xs text-muted-foreground">{stat.label}</div>
