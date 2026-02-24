@@ -50,7 +50,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <Button size="sm" className="hidden md:inline-flex btn-gradient rounded-full font-semibold text-sm px-5">
+        <Button size="sm" className="hidden md:inline-flex btn btn-primary rounded-full font-semibold text-sm px-5">
           Free Consultation
           <ArrowRight className="ml-1.5" size={14} />
         </Button>
@@ -82,7 +82,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <Button size="sm" className="btn-gradient rounded-full font-semibold w-full mt-2">
+          <Button size="sm" className="btn btn-primary rounded-full font-semibold w-full mt-2">
             Free Consultation
             <ArrowRight className="ml-1.5" size={14} />
           </Button>
