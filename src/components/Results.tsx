@@ -74,11 +74,11 @@ const Results = () => {
                   <span className="text-base text-muted-foreground">{row.problem}</span>
                 </div>
                 <div className="p-5 lg:p-6 flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-[hsl(var(--gradient-end))] shrink-0" />
+                   <CheckCircle2 size={16} className="text-[hsl(var(--gradient-start))] shrink-0" />
                   <span className="text-base text-foreground">{row.solution}</span>
                 </div>
                 <div className="p-5 lg:p-6 flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-[hsl(var(--gradient-end))] shrink-0" />
+                   <CheckCircle2 size={16} className="text-[hsl(var(--gradient-start))] shrink-0" />
                   <span className="text-base font-semibold text-foreground">{row.outcome}</span>
                 </div>
               </div>

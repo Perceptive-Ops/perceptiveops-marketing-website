@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, BadgeCheck } from "lucide-react";
+import { Star, BadgeCheck, ArrowRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -43,23 +43,30 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="min-w-[320px] lg:min-w-0 snap-center p-7 rounded-2xl border border-border bg-card flex flex-col"
+              className="group min-w-[320px] lg:min-w-0 snap-center p-7 rounded-2xl border border-border bg-card flex flex-col transition-all duration-300 hover:bg-[hsl(var(--dark-card))] hover:border-[hsl(var(--dark-card))]"
             >
               <div className="flex items-center justify-between mb-5">
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }).map((_, j) => (
-                    <Star key={j} size={14} className="fill-foreground text-foreground" />
+                    <Star key={j} size={14} className="fill-foreground text-foreground group-hover:fill-[hsl(var(--dark-card-foreground))] group-hover:text-[hsl(var(--dark-card-foreground))] transition-colors" />
                   ))}
                 </div>
-                <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <BadgeCheck size={14} className="text-[hsl(var(--gradient-end))]" />
+                <div className="flex items-center gap-1 text-xs text-muted-foreground group-hover:text-[hsl(0_0%_100%/0.5)] transition-colors">
+                  <BadgeCheck size={14} className="text-[hsl(var(--gradient-start))]" />
                   Verified
                 </div>
               </div>
-              <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-1">"{t.quote}"</p>
+
+              {/* Long arrow decoration */}
+              <div className="flex items-center text-muted-foreground/30 group-hover:text-[hsl(var(--gradient-start))] transition-colors mb-5">
+                <div className="w-20 lg:w-28 h-[1.5px] bg-current" />
+                <ArrowRight size={18} className="-ml-1" />
+              </div>
+
+              <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-1 group-hover:text-[hsl(0_0%_100%/0.6)] transition-colors">"{t.quote}"</p>
               <div>
-                <div className="font-semibold text-sm">{t.name}</div>
-                <div className="text-xs text-muted-foreground">{t.role}</div>
+                <div className="font-semibold text-sm group-hover:text-[hsl(var(--dark-card-foreground))] transition-colors">{t.name}</div>
+                <div className="text-xs text-muted-foreground group-hover:text-[hsl(0_0%_100%/0.5)] transition-colors">{t.role}</div>
               </div>
             </motion.div>
           ))}
