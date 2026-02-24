@@ -1,63 +1,82 @@
 
 
-# Perceptive Ops — Landing Page
+# Redesign to Match Axe Automation's Design Language
 
-A modern, professional single-page website for Perceptive Ops, inspired by the clean, bold design of Axe Automation. Dark/light aesthetic with smooth animations and a conversion-focused layout.
+Restyle the entire Perceptive Ops landing page to closely match the design patterns, layout structure, and visual feel of axeautomation.co -- while keeping all existing Perceptive Ops content.
 
-## Design Direction
-- **Clean, modern, and professional** — similar to Axe Automation's style with a light background, bold typography, and plenty of whitespace
-- **Color palette**: Blues and purples drawn from the Perceptive Ops logo (cyan-to-purple gradient accents)
-- **The uploaded logo** will be embedded in the navbar and footer
-- Smooth scroll animations as sections come into view
-- Fully responsive (mobile, tablet, desktop)
+## Key Design Changes
 
-## Page Sections (top to bottom)
+### Overall Theme
+- Switch to a **light/white background** with clean, minimal aesthetic (currently has subtle gradient orbs -- these stay but get toned down)
+- Use **black/dark text** as the primary text color for headings
+- Rounded, pill-shaped navbar floating at the top (like Axe's navbar with a subtle border/shadow)
+- **Dark CTA buttons** (black/dark navy with white text and arrow icon) instead of gradient buttons
+- The gradient accent (cyan-to-purple) becomes more subtle -- used sparingly for highlighted text only
+- Bigger, bolder typography with more whitespace between sections
 
-### 1. Navigation Bar
-- Perceptive Ops logo (left), nav links (Services, Process, Results, Case Studies), and a "Get Free Consultation" CTA button (right)
-- Sticky header with subtle background blur on scroll
+### Section-by-Section Changes
 
-### 2. Hero Section
-- Large headline: "We Build AI Systems That Run Your Operations"
-- Subheadline text below
-- Two CTA buttons: "Get Free Consultation" (primary) and "See Our Work" (outline/secondary)
-- Stats row below: 200+ AI Models Deployed, $50M+ Client Revenue Impact, 98% Client Retention, 50K+ Hours Automated
+**1. Navbar**
+- Floating rounded-pill style container with light background, border, and shadow
+- Logo left, links center, dark CTA button right with arrow icon
+- More padding and a polished, card-like feel
 
-### 3. Trusted By / Logo Bar
-- Scrolling or static row of partner logos (Stripe, Shopify, HubSpot, Notion, Vercel, Supabase, Linear, Retool) displayed as text-based logo placeholders
+**2. Hero**
+- Small pill badge at top (keep existing)
+- Much larger headline text, bolder weight
+- "Run Your Operations" stays gradient but consider adding a subtle text-stroke or highlight box effect similar to Axe's "custom and done-for-you"
+- Single dark CTA button ("FREE CONSULTATION" with arrow) instead of two buttons -- or keep two but make primary dark
+- Stats row moves into a contained card/box below the CTA (like Axe's stats bar with light background)
 
-### 4. Services Section
-- 6 service cards in a grid layout, each with an icon, title, and brief description:
-  - AI Agent & Chatbot Development
-  - Workflow Automation & Integration
-  - Machine Learning & Predictive Analytics
-  - AI-Powered Product Development
-  - AI Strategy & Consulting
-  - Data Engineering & Analytics
+**3. Trusted By**
+- Add a heading like "Trusted by innovative teams" (already exists)
+- Keep the scrolling animation
+- Slightly larger brand names, more spaced out
 
-### 5. Process Section
-- 4-step horizontal process flow with numbered steps:
-  1. Discover & Audit
-  2. Design & Architect
-  3. Build & Deploy
-  4. Optimize & Scale
+**4. Process (Our Approach)**
+- Redesign as vertical stacked cards (like Axe's Phase 1-4 cards) instead of horizontal 4-column grid
+- Each phase gets a dark/gradient background card with phase number, title, and description
+- Add arrow connectors between phases
+- Add section CTA button
 
-### 6. Results Section
-- 4 bold stat cards: 40% cost reduction, 3X faster processing, 99% model accuracy, 10X ROI within 12 months
+**5. Case Studies**
+- Larger, more prominent cards with industry tag, bold headline, image placeholder area, description, and embedded testimonial quote
+- Each card gets more vertical space -- closer to Axe's full-width case study cards
 
-### 7. Case Studies Section
-- 3 case study cards with titles and brief descriptions:
-  - AI Diagnostic System for Biotech Firm
-  - Multi-Vendor Marketplace Platform
-  - Enterprise AI Support Chatbot
+**6. Results / Outcomes**
+- Reframe as a "Problems vs Solutions vs Outcomes" section (inspired by Axe's Outcomes section)
+- Or keep as stat cards but make them larger with dark background and white text
 
-### 8. Testimonials Section
-- 3 testimonial cards with quotes from James Mitchell, Sarah Rodriguez, and David Kim
+**7. Testimonials / Reviews**
+- Horizontal scrolling carousel of review cards (like Axe's Clutch reviews section)
+- Each card shows stars, quote, reviewer name/title, and "Verified" badge
 
-### 9. Final CTA Section
-- Bold headline: "Ready to Make Your Operations Intelligent?"
-- CTA button + contact email display (hello@perceptiveops.com)
+**8. Final CTA**
+- Dark background section with bold white text
+- Contrasting layout: "Not hiring us vs hiring us" comparison (inspired by Axe)
+- Or keep simple but with dark/gradient background and white text
 
-### 10. Footer
-- Logo, navigation links, contact email, copyright line (© 2026 Perceptive Ops)
+**9. Footer**
+- Dark background footer with columns for Services, Company links
+- Social media icons row
+- Logo + tagline + copyright
+
+## Technical Details
+
+### Files to modify:
+- **src/index.css** -- Update CSS variables: make background pure white, adjust card colors, add new utility classes for dark cards and pill shapes
+- **src/components/Navbar.tsx** -- Floating pill navbar with rounded container, centered links, dark CTA button
+- **src/components/Hero.tsx** -- Larger text, dark CTA button style, stats in a contained card
+- **src/components/TrustedBy.tsx** -- Minor spacing/sizing tweaks
+- **src/components/Services.tsx** -- Keep 6-card grid but refine card styling (cleaner borders, hover effects)
+- **src/components/Process.tsx** -- Vertical stacked phase cards with dark backgrounds and phase numbers
+- **src/components/Results.tsx** -- Larger cards or problems/solutions/outcomes layout
+- **src/components/CaseStudies.tsx** -- Bigger cards with more detail, image placeholder areas, embedded quotes
+- **src/components/Testimonials.tsx** -- Horizontal scrolling carousel with verified review badges
+- **src/components/FinalCTA.tsx** -- Dark background, bold white headline, comparison copy
+- **src/components/Footer.tsx** -- Dark background, multi-column layout with social links
+- **tailwind.config.ts** -- Add any new keyframes or utility extensions needed
+
+### No new dependencies needed
+All changes use existing Tailwind CSS, Framer Motion, and Lucide icons.
 
