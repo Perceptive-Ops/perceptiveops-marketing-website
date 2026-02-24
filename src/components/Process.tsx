@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Search, PenTool, Code2, TrendingUp, ArrowRight } from "lucide-react";
+import { Search, PenTool, Code2, TrendingUp, BrainCircuit } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const steps = [
   {
@@ -8,28 +9,24 @@ const steps = [
     num: "Phase 1",
     title: "Discover & Audit",
     desc: "We analyze your workflows, data, and tech stack to find the highest-impact AI opportunities. Every engagement starts with deep discovery.",
-    highlighted: true,
   },
   {
     icon: PenTool,
     num: "Phase 2",
     title: "Design & Architect",
     desc: "We design a tailored AI architecture aligned with your business goals and existing infrastructure. No cookie-cutter solutions.",
-    highlighted: false,
   },
   {
     icon: Code2,
     num: "Phase 3",
     title: "Build & Deploy",
     desc: "We develop, test, and deploy production-ready AI solutions with continuous monitoring and iteration until it's perfect.",
-    highlighted: false,
   },
   {
     icon: TrendingUp,
     num: "Phase 4",
     title: "Optimize & Scale",
     desc: "We continuously improve model performance and scale systems as your business grows. Your AI gets smarter over time.",
-    highlighted: false,
   },
 ];
 
@@ -55,14 +52,14 @@ const Process = () => {
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
                 We follow a battle-tested methodology that ensures every AI implementation delivers measurable results. From discovery to deployment, we're with you every step.
               </p>
-              <Button size="lg" className="bg-primary text-primary-foreground rounded-full font-semibold text-base px-8 h-13">
+              <Button size="lg" className="gradient-bg border-0 text-primary-foreground rounded-full font-semibold text-base px-8 h-13">
                 Free Consultation
                 <ArrowRight className="ml-2" size={18} />
               </Button>
             </div>
             <div className="lg:w-[45%] shrink-0">
-              <div className="aspect-[4/3] rounded-2xl bg-muted border border-border flex items-center justify-center">
-                <span className="text-muted-foreground text-sm">Process Overview</span>
+              <div className="aspect-[4/3] rounded-2xl gradient-bg flex items-center justify-center">
+                <BrainCircuit size={80} className="text-white/80" />
               </div>
             </div>
           </div>
@@ -77,39 +74,22 @@ const Process = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`rounded-2xl p-8 lg:p-10 ${
-                step.highlighted
-                  ? "dark-section"
-                  : "bg-card border border-border"
-              }`}
+              className="group rounded-2xl p-8 lg:p-10 bg-card border border-border transition-all duration-300 hover:bg-[hsl(var(--dark-card))] hover:border-[hsl(var(--dark-card))]"
             >
               <div className="flex items-start justify-between mb-6">
-                <span
-                  className={`inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full ${
-                    step.highlighted
-                      ? "bg-[hsl(0_0%_100%/0.1)] text-[hsl(var(--gradient-start))]"
-                      : "bg-secondary text-muted-foreground"
-                  }`}
-                >
+                <span className="inline-block text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full bg-secondary text-muted-foreground group-hover:bg-[hsl(0_0%_100%/0.1)] group-hover:text-[hsl(var(--gradient-start))] transition-colors">
                   {step.num}
                 </span>
-                <ArrowRight
-                  size={20}
-                  className={step.highlighted ? "text-[hsl(0_0%_100%/0.3)]" : "text-muted-foreground/30"}
-                />
+                {/* Long arrow */}
+                <div className="flex items-center text-muted-foreground/30 group-hover:text-[hsl(0_0%_100%/0.4)] transition-colors">
+                  <div className="w-12 lg:w-16 h-[1.5px] bg-current" />
+                  <ArrowRight size={18} className="-ml-1" />
+                </div>
               </div>
-              <h3
-                className={`font-display text-2xl lg:text-3xl font-bold mb-3 ${
-                  step.highlighted ? "text-[hsl(var(--dark-card-foreground))]" : "text-foreground"
-                }`}
-              >
+              <h3 className="font-display text-2xl lg:text-3xl font-bold mb-3 text-foreground group-hover:text-[hsl(var(--dark-card-foreground))] transition-colors">
                 {step.title}
               </h3>
-              <p
-                className={`text-base leading-relaxed ${
-                  step.highlighted ? "text-[hsl(0_0%_100%/0.6)]" : "text-muted-foreground"
-                }`}
-              >
+              <p className="text-base leading-relaxed text-muted-foreground group-hover:text-[hsl(0_0%_100%/0.6)] transition-colors">
                 {step.desc}
               </p>
             </motion.div>
