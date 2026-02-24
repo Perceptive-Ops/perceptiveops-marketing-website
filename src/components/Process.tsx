@@ -53,7 +53,7 @@ const Process = () => {
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
                 We follow a battle-tested methodology that ensures every AI implementation delivers measurable results. From discovery to deployment, we're with you every step.
               </p>
-              <Button size="lg" className="btn-gradient rounded-full font-semibold text-base px-8 h-13">
+              <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-13">
                 Free Consultation
                 <ArrowRight className="ml-2" size={18} />
               </Button>

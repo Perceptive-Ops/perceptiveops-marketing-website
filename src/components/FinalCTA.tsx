@@ -19,7 +19,7 @@ const FinalCTA = () => {
           <p className="text-lg text-[hsl(0_0%_100%/0.6)] mb-10 max-w-xl mx-auto">
             Let's talk about how AI can transform your business. Book a free strategy call with our team.
           </p>
-          <Button size="lg" className="btn-gradient rounded-full font-semibold text-base px-8 h-13 mb-8">
+          <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-13 mb-8">
             Get Free Consultation
             <ArrowRight className="ml-2" size={18} />
           </Button>

@@ -66,7 +66,7 @@ const Hero = () => {
           </p>
 
           <div className="flex justify-center mb-20">
-            <Button size="lg" className="btn-gradient rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
+            <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
               Free Consultation
               <span className="ml-3 w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center">
                 <ArrowRight size={16} />
