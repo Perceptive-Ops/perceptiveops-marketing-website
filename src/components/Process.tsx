@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { Search, PenTool, Code2, TrendingUp, BrainCircuit, Workflow, Database, Rocket } from "lucide-react";
+import { Search, PenTool, Code2, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import processApproach from "@/assets/process-approach.jpg";
 
 const steps = [
   {
@@ -58,19 +59,8 @@ const Process = () => {
               </Button>
             </div>
             <div className="lg:w-[45%] shrink-0">
-              <div className="aspect-[4/3] rounded-2xl bg-[hsl(var(--gradient-end)/0.08)] border border-[hsl(var(--gradient-end)/0.15)] p-6 grid grid-cols-2 gap-4">
-                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.12)] flex items-center justify-center">
-                  <BrainCircuit size={40} className="text-[hsl(var(--gradient-end))]" />
-                </div>
-                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.08)] flex items-center justify-center">
-                  <Workflow size={36} className="text-[hsl(var(--gradient-end)/0.7)]" />
-                </div>
-                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.08)] flex items-center justify-center">
-                  <Database size={36} className="text-[hsl(var(--gradient-end)/0.7)]" />
-                </div>
-                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.12)] flex items-center justify-center">
-                  <Rocket size={40} className="text-[hsl(var(--gradient-end))]" />
-                </div>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img src={processApproach} alt="AI-powered operations approach" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </div>

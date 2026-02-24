@@ -14,7 +14,7 @@ const TrustedBy = () => {
             {[...brands, ...brands].map((brand, i) => (
               <span
                 key={i}
-                className="text-3xl font-display font-bold text-muted-foreground/30 whitespace-nowrap select-none"
+                className="text-5xl lg:text-6xl font-display font-bold text-muted-foreground/30 whitespace-nowrap select-none"
               >
                 {brand}
               </span>
