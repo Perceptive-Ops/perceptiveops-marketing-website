@@ -23,7 +23,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <img src={logo} alt="Perceptive Ops" className="h-20 w-auto mb-4 brightness-0 invert" />
+            <img src={logo} alt="Perceptive Ops" className="h-[140px] w-auto mb-4 brightness-0 invert" />
             <p className="text-sm text-[hsl(0_0%_100%/0.5)] leading-relaxed">
               We build AI systems that run your operations — so your team works smarter.
             </p>

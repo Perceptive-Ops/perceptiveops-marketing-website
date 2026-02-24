@@ -34,7 +34,7 @@ const Navbar = () => {
         }`}
       >
         <a href="#" className="flex items-center gap-2 shrink-0">
-          <img src={logo} alt="Perceptive Ops" className="h-24 w-auto" />
+          <img src={logo} alt="Perceptive Ops" className="h-[140px] w-auto" />
         </a>
 
         {/* Desktop nav */}
