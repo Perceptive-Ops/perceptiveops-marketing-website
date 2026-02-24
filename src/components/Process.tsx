@@ -7,25 +7,25 @@ import processApproach from "@/assets/process-approach.jpg";
 const steps = [
   {
     icon: Search,
-    num: "Phase 1",
+    num: "01",
     title: "Discover & Audit",
     desc: "We analyze your workflows, data, and tech stack to find the highest-impact AI opportunities. Every engagement starts with deep discovery.",
   },
   {
     icon: PenTool,
-    num: "Phase 2",
+    num: "02",
     title: "Design & Architect",
     desc: "We design a tailored AI architecture aligned with your business goals and existing infrastructure. No cookie-cutter solutions.",
   },
   {
     icon: Code2,
-    num: "Phase 3",
+    num: "03",
     title: "Build & Deploy",
     desc: "We develop, test, and deploy production-ready AI solutions with continuous monitoring and iteration until it's perfect.",
   },
   {
     icon: TrendingUp,
-    num: "Phase 4",
+    num: "04",
     title: "Optimize & Scale",
     desc: "We continuously improve model performance and scale systems as your business grows. Your AI gets smarter over time.",
   },
@@ -45,13 +45,13 @@ const Process = () => {
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             <div className="flex-1">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-background text-sm font-medium text-muted-foreground mb-6">
-                Our Approach
+                Our Process
               </div>
               <h2 className="font-display text-3xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
-                Our <span className="highlight-box">proven approach</span> to transform your operations
+                From Chaos to Clarity in <span className="highlight-box">4 Phases</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
-                We follow a battle-tested methodology that ensures every AI implementation delivers measurable results. From discovery to deployment, we're with you every step.
+                A battle-tested approach that's transformed operations for 200+ businesses.
               </p>
               <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-13">
                 Free Consultation

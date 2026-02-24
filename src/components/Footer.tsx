@@ -1,19 +1,27 @@
 import logo from "@/assets/perceptive-ops-logo.png";
+import { Linkedin, Github } from "lucide-react";
 
 const serviceLinks = [
   "AI Agent Development",
   "Workflow Automation",
   "Machine Learning",
-  "Product Development",
-  "AI Strategy",
-  "Data Engineering",
+  "Product Engineering",
+  "AI Consulting",
 ];
 
 const companyLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Results", href: "#results" },
-  { label: "Case Studies", href: "#case-studies" },
+  { label: "About Us", href: "#" },
+  { label: "Case Studies", href: "#cases" },
+  { label: "Blog", href: "#" },
+  { label: "Careers", href: "#" },
+  { label: "Contact", href: "#contact" },
+];
+
+const connectLinks = [
+  { label: "hello@perceptiveops.com", href: "mailto:hello@perceptiveops.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/perceptive-ops" },
+  { label: "Twitter / X", href: "https://x.com/perceptiveops" },
+  { label: "GitHub", href: "https://github.com/perceptiveops" },
 ];
 
 const Footer = () => {
@@ -25,7 +33,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <img src={logo} alt="Perceptive Ops" className="h-[140px] w-auto mb-4 brightness-0 invert" />
             <p className="text-sm text-[hsl(0_0%_100%/0.5)] leading-relaxed">
-              We build AI systems that run your operations — so your team works smarter.
+              AI-powered operations and automation for businesses that want to scale smarter, not harder.
             </p>
           </div>
 
@@ -57,20 +65,36 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Connect */}
           <div>
-            <h4 className="text-sm font-semibold text-[hsl(var(--dark-card-foreground))] mb-4">Contact</h4>
-            <a
-              href="mailto:hello@perceptiveops.com"
-              className="text-sm text-[hsl(0_0%_100%/0.5)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors"
-            >
-              hello@perceptiveops.com
-            </a>
+            <h4 className="text-sm font-semibold text-[hsl(var(--dark-card-foreground))] mb-4">Connect</h4>
+            <ul className="space-y-2">
+              {connectLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined} className="text-sm text-[hsl(0_0%_100%/0.5)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[hsl(0_0%_100%/0.1)] text-center text-xs text-[hsl(0_0%_100%/0.4)]">
-          © 2026 Perceptive Ops. All rights reserved.
+        <div className="pt-8 border-t border-[hsl(0_0%_100%/0.1)] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="text-xs text-[hsl(0_0%_100%/0.4)]">
+            © 2026 Perceptive Ops. All rights reserved.
+          </span>
+          <div className="flex items-center gap-4">
+            <a href="https://x.com/perceptiveops" target="_blank" rel="noopener noreferrer" className="text-[hsl(0_0%_100%/0.4)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors" aria-label="Twitter / X">
+              <span className="text-sm font-bold">𝕏</span>
+            </a>
+            <a href="https://www.linkedin.com/company/perceptive-ops" target="_blank" rel="noopener noreferrer" className="text-[hsl(0_0%_100%/0.4)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors" aria-label="LinkedIn">
+              <Linkedin size={16} />
+            </a>
+            <a href="https://github.com/perceptiveops" target="_blank" rel="noopener noreferrer" className="text-[hsl(0_0%_100%/0.4)] hover:text-[hsl(0_0%_100%/0.8)] transition-colors" aria-label="GitHub">
+              <Github size={16} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

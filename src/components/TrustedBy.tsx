@@ -7,7 +7,7 @@ const TrustedBy = () => {
     <section className="py-16 border-y border-border">
       <div className="container mx-auto px-4 lg:px-8">
         <p className="text-center text-sm font-medium text-muted-foreground mb-10 uppercase tracking-widest">
-          Trusted by innovative teams
+          Trusted by forward-thinking companies
         </p>
         <div className="relative overflow-hidden">
           <div className="flex animate-scroll-left gap-16 w-max">

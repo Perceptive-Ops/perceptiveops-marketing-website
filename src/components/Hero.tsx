@@ -5,8 +5,9 @@ import { useRef, useEffect } from "react";
 
 const stats = [
   { value: "200+", label: "AI Models Deployed" },
-  { value: "50K+", label: "Hours Automated" },
+  { value: "$50M+", label: "Client Revenue Impact" },
   { value: "98%", label: "Client Retention" },
+  { value: "50K+", label: "Hours Automated" },
 ];
 
 const Hero = () => {
@@ -16,14 +17,11 @@ const Hero = () => {
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
-    video.play().catch(() => {
-      // Autoplay blocked — video stays on poster
-    });
+    video.play().catch(() => {});
   }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video background */}
       <video
         ref={videoRef}
         autoPlay
@@ -39,10 +37,8 @@ const Hero = () => {
         />
       </video>
 
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60" />
 
-      {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -52,7 +48,7 @@ const Hero = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/10 text-sm font-medium text-white/80 mb-8 backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full gradient-bg" />
-            AI-Powered Operations Partner
+            Now Accepting New Clients
           </div>
 
           <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-8 text-white">
@@ -65,17 +61,21 @@ const Hero = () => {
             — so your team works smarter, scales faster, and ships with confidence.
           </p>
 
-          <div className="flex justify-center mb-20">
-            <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
-              Free Consultation
-              <span className="ml-3 w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center">
-                <ArrowRight size={16} />
-              </span>
-            </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-20">
+            <a href="#contact">
+              <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-14">
+                Get Free Consultation
+                <ArrowRight className="ml-2" size={16} />
+              </Button>
+            </a>
+            <a href="#cases">
+              <Button size="lg" className="btn btn-secondary rounded-full font-semibold text-base px-8 h-14">
+                See Our Work
+              </Button>
+            </a>
           </div>
         </motion.div>
 
-        {/* Stats bar */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,7 +83,6 @@ const Hero = () => {
           className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 lg:p-8"
         >
           <div className="flex flex-col lg:flex-row items-center gap-8">
-            {/* Badges area */}
             <div className="flex items-center gap-4 shrink-0">
               <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10">
                 <div className="w-8 h-8 rounded-full bg-[hsl(var(--gradient-end))] flex items-center justify-center">
@@ -105,14 +104,12 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Divider */}
             <div className="hidden lg:block w-px h-12 bg-white/10" />
 
-            {/* Stats */}
-            <div className="flex-1 grid grid-cols-3 divide-x divide-white/10">
+            <div className="flex-1 grid grid-cols-4 divide-x divide-white/10">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center px-4">
-                  <div className="font-display text-4xl lg:text-5xl font-bold text-white mb-1">
+                  <div className="font-display text-3xl lg:text-4xl font-bold text-white mb-1">
                     {stat.value}
                   </div>
                   <div className="text-xs text-white/50">{stat.label}</div>
