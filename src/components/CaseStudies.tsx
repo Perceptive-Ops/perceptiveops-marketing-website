@@ -79,7 +79,7 @@ const CaseStudies = () => {
                     <Lightbulb size={14} />
                     What We Did
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                  <p className="text-base text-muted-foreground leading-relaxed">{c.desc}</p>
                 </div>
 
                 {/* Right - Testimonial */}

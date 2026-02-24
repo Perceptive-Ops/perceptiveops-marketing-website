@@ -71,15 +71,15 @@ const Results = () => {
                 }`}
               >
                 <div className="p-5 lg:p-6 flex items-center">
-                  <span className="text-sm text-muted-foreground">{row.problem}</span>
+                  <span className="text-base text-muted-foreground">{row.problem}</span>
                 </div>
                 <div className="p-5 lg:p-6 flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-[hsl(var(--gradient-start))] shrink-0" />
-                  <span className="text-sm text-foreground">{row.solution}</span>
+                  <span className="text-base text-foreground">{row.solution}</span>
                 </div>
                 <div className="p-5 lg:p-6 flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-[hsl(var(--gradient-start))] shrink-0" />
-                  <span className="text-sm font-semibold text-foreground">{row.outcome}</span>
+                  <span className="text-base font-semibold text-foreground">{row.outcome}</span>
                 </div>
               </div>
             ))}
