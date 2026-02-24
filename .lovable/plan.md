@@ -1,74 +1,89 @@
 
 
-# Multi-Section Redesign: Case Studies, Buttons, Hero, and Video
+# Website Copy Update, Tech Stack Section, and Footer Redesign
 
 ## Overview
-This plan covers five changes: redesigning Case Studies to match the uploaded reference, adding hover effects to Testimonial cards, switching all buttons from purple to blue, making the hero headline larger, and swapping the background video.
+This plan updates all website copy to match the provided content spec, adds a new Tech Stack section before Testimonials, and redesigns the Footer to match the reference screenshot.
 
 ---
 
-## 1. Case Studies Redesign (`src/components/CaseStudies.tsx`)
+## 1. Update All Section Copy
 
-Replace the current sticky-stacking layout with a **3-column card grid** matching the uploaded reference:
+### Navbar (`src/components/Navbar.tsx`)
+- Add "Testimonials" link (`#testimonials`) to nav links
+- Change CTA text to "Book a Call" with `href="#contact"`
 
-- Each card: dark background (`bg-card`), rounded corners, border
-- **Top section**: The existing AI-generated image (from `src/assets/`) displayed as a wide banner with a subtle teal/dark gradient overlay and a centered icon
-- **Middle section**: Colored tag label (e.g. "HEALTHCARE AI" in cyan/teal), bold title, description paragraph
-- **Bottom section**: 3 metric stats in a row (value + label underneath), styled with the accent color
-- Remove the testimonial sidebar and sticky scroll behavior entirely
-- Use `lg:grid-cols-3` responsive grid layout
-- Keep the existing images (`case-healthcare.jpg`, `case-ecommerce.jpg`, `case-support.jpg`) for each card's top banner
+### Hero (`src/components/Hero.tsx`)
+- Badge text: "Now Accepting New Clients"
+- Headline: "We Build AI Systems That Run Your Operations"
+- Subtitle: updated to match spec
+- Two buttons: "Get Free Consultation" (btn-primary, `href="#contact"`) + "See Our Work" (btn-secondary, `href="#cases"`)
+- Stats: add 4th stat "$50M+ / Client Revenue Impact", reorder to match spec
 
-Data structure update -- add metrics array to each case:
-```text
-Healthcare: 85% Faster Analysis | 99.2% Accuracy | 5M+ Images Processed
-E-Commerce: 90% Revenue Increase | 2X Order Capacity | 14->5 Days to Launch
-Support: 40% Faster Response | 2X Volume Handled | 92% CSAT Score
-```
+### TrustedBy (`src/components/TrustedBy.tsx`)
+- Update text to "Trusted by forward-thinking companies"
 
-## 2. Testimonial Cards Hover Effect (`src/components/Testimonials.tsx`)
+### Services (`src/components/Services.tsx`)
+- Badge: "What We Do"
+- Heading: "AI-Powered Services Built for Real Impact"
+- Add subtitle paragraph: "From strategy to deployment..."
+- Add "Learn more" links to each card
 
-Apply the same hover pattern used by the Process phase cards:
-- Default: `bg-card border-border`
-- On hover: transition to dark background (`hover:bg-[hsl(var(--dark-card))]`), update text colors to light, add the long horizontal arrow decoration
-- Add `group` class and `group-hover:` color transitions for all text elements
+### Process (`src/components/Process.tsx`)
+- Badge: "Our Process"
+- Heading: "From Chaos to Clarity in 4 Phases"
+- Subtitle: "A battle-tested approach..."
+- Step labels: "01 Discover and Audit", "02 Design and Architect", etc.
 
-## 3. All Buttons: Purple to Blue Gradient (`src/index.css` + all components)
+### Results (`src/components/Results.tsx`)
+- Badge: "Results That Matter"
+- Heading: "Every Automation Compounds"
+- Subtitle: "Real numbers from real clients..."
+- Change from table format to 4 result cards: 40% cost reduction, 3X faster, 99% accuracy, 10X ROI
 
-Replace the `btn-purple-3d` utility with a new `btn-gradient` style matching the uploaded button reference:
+### Case Studies (`src/components/CaseStudies.tsx`)
+- Update `id` to `cases` (matching nav link `#cases`)
+- Badge: "Case Studies"
+- Heading: "Proof in the Results"
+- Subtitle: "See how we've helped companies..."
+- Update tag for support card to "Conversational AI"
 
-**New CSS utility** (replacing `btn-purple-3d`):
-```text
-.btn-gradient {
-  background: linear-gradient(135deg, hsl(270 60% 58%), hsl(220 90% 56%));
-  color: white;
-  border-radius: 12px;
-  padding: 14px 32px;
-  font-weight: 600;
-  box-shadow: 0 4px 24px rgba(99, 102, 241, 0.3);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.btn-gradient:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.45);
-}
-```
+### FinalCTA (`src/components/FinalCTA.tsx`)
+- Add `id="contact"`
+- Heading: "Ready to Make Your Operations Intelligent?"
+- Subtitle: "Book a free consultation. We'll audit your operations..."
+- Button: "Book Your Free Consultation" with `mailto:hello@perceptiveops.com`
 
-Files to update class references from `btn-purple-3d` to `btn-gradient`:
-- `src/components/Hero.tsx` (main CTA)
-- `src/components/Navbar.tsx` (header CTA, desktop + mobile)
-- `src/components/Process.tsx` (consultation button)
-- `src/components/FinalCTA.tsx` (final CTA)
+---
 
-Also update `highlight-box` background to use blue instead of purple.
+## 2. New Tech Stack Section (`src/components/TechStack.tsx`)
 
-## 4. Hero Headline Size (`src/components/Hero.tsx`)
+Create a new component matching the uploaded dark-background screenshot:
+- Dark section background (`dark-section`)
+- Badge pill: "TECH STACK"
+- Heading: "Built With the **Best Tools**" (last two words in gradient text)
+- Subtitle: "We're tech-agnostic. We choose what's right for your project, not what's trendy."
+- Grid of pill/chip elements, each with a small colored dot and tech name
+- Technologies: Python, TensorFlow, PyTorch, OpenAI, Claude / Anthropic, LangChain, AWS, Google Cloud, Azure, Next.js, React, Node.js, Flutter, FastAPI, Make.com, n8n, PostgreSQL, Pinecone, Docker, Kubernetes
+- Each pill: rounded border, dark background, subtle border, colored dot (varied colors like green, red, purple, cyan, orange, blue)
+- Centered, wrapping layout using `flex flex-wrap justify-center gap-3`
 
-Increase hero `h1` to `text-5xl sm:text-6xl lg:text-7xl` so it is visibly larger than all other section headings (which use `text-4xl lg:text-6xl` or `text-3xl lg:text-5xl`).
+---
 
-## 5. Background Video with Purple/Blue Elements
+## 3. Footer Redesign (`src/components/Footer.tsx`)
 
-Replace the current Pexels video URL with one that features purple and blue abstract/tech visuals. Will use a Pexels video with blue/purple particle or network visuals (e.g. abstract blue data streams or neural network animations).
+Redesign to match the reference screenshot:
+- **Brand column**: Logo + "Perceptive Ops" name + tagline "AI-powered operations and automation for businesses that want to scale smarter, not harder."
+- **Services column**: AI Agent Development, Workflow Automation, Machine Learning, Product Engineering, AI Consulting
+- **Company column**: About Us, Case Studies, Blog, Careers, Contact
+- **Connect column**: hello@perceptiveops.com, LinkedIn (https://www.linkedin.com/company/perceptive-ops), Twitter / X (https://x.com/perceptiveops), GitHub (https://github.com/perceptiveops)
+- **Bottom bar**: Copyright left, social icons right (X, LinkedIn, YouTube/play icons)
+
+---
+
+## 4. Page Layout Update (`src/pages/Index.tsx`)
+
+Insert `TechStack` component between `CaseStudies` and `Testimonials`.
 
 ---
 
@@ -76,13 +91,15 @@ Replace the current Pexels video URL with one that features purple and blue abst
 
 | File | Changes |
 |------|---------|
-| `src/components/CaseStudies.tsx` | Full rewrite to 3-column grid cards with image banners and metric stats |
-| `src/components/Testimonials.tsx` | Add group-hover dark background transition and arrow decoration |
-| `src/index.css` | Replace `btn-purple-3d` with `btn-gradient`, update `highlight-box` color |
-| `src/components/Hero.tsx` | Increase h1 font size, update button class, swap video URL |
-| `src/components/Navbar.tsx` | Update button class from `btn-purple-3d` to `btn-gradient` |
-| `src/components/Process.tsx` | Update button class |
-| `src/components/FinalCTA.tsx` | Update button class |
-| `src/components/Services.tsx` | Update icon accent color from purple to blue |
-| `src/components/Results.tsx` | Update checkmark icon color from purple to blue |
+| `src/components/Navbar.tsx` | Add Testimonials nav link, update CTA |
+| `src/components/Hero.tsx` | Update copy, add 2 buttons + 4th stat |
+| `src/components/TrustedBy.tsx` | Update heading text |
+| `src/components/Services.tsx` | Update heading/badge, add subtitle + learn more |
+| `src/components/Process.tsx` | Update copy to match spec |
+| `src/components/Results.tsx` | Update copy, change to card layout |
+| `src/components/CaseStudies.tsx` | Update id, copy, tag names |
+| `src/components/FinalCTA.tsx` | Add id="contact", update copy + mailto link |
+| `src/components/TechStack.tsx` | **New file** - dark tech stack pill grid |
+| `src/components/Footer.tsx` | Full redesign with social links |
+| `src/pages/Index.tsx` | Import and add TechStack |
 
