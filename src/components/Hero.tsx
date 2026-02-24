@@ -31,10 +31,10 @@ const Hero = () => {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        poster="https://images.pexels.com/videos/3129671/free-video-3129671.jpg?auto=compress&cs=tinysrgb&w=1920"
+        poster="https://images.pexels.com/videos/5377684/pexels-photo-5377684.jpeg?auto=compress&cs=tinysrgb&w=1920"
       >
         <source
-          src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4"
+          src="https://videos.pexels.com/video-files/5377684/5377684-hd_1920_1080_25fps.mp4"
           type="video/mp4"
         />
       </video>
@@ -55,7 +55,7 @@ const Hero = () => {
             AI-Powered Operations Partner
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-8 text-white">
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-8 text-white">
             We Build AI Systems<br className="hidden sm:block" /> That{" "}
             <span className="highlight-box">Run Your Operations</span>
           </h1>
@@ -66,7 +66,7 @@ const Hero = () => {
           </p>
 
           <div className="flex justify-center mb-20">
-            <Button size="lg" className="btn-purple-3d rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
+            <Button size="lg" className="btn-gradient rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
               Free Consultation
               <span className="ml-3 w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center">
                 <ArrowRight size={16} />
