@@ -61,8 +61,8 @@ const Services = () => {
               className="group relative p-7 rounded-2xl border border-border bg-card hover:bg-secondary/50 hover:border-border transition-all duration-300 cursor-pointer"
             >
               <div className="flex items-start justify-between mb-5">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center">
-                  <s.icon size={22} className="text-foreground" />
+                <div className="w-12 h-12 rounded-xl bg-[hsl(var(--gradient-end)/0.1)] flex items-center justify-center">
+                  <s.icon size={22} className="text-[hsl(var(--gradient-end))]" />
                 </div>
                 <ArrowUpRight size={18} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>

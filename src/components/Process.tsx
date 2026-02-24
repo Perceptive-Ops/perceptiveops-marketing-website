@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, PenTool, Code2, TrendingUp, BrainCircuit } from "lucide-react";
+import { Search, PenTool, Code2, TrendingUp, BrainCircuit, Workflow, Database, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -52,14 +52,25 @@ const Process = () => {
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
                 We follow a battle-tested methodology that ensures every AI implementation delivers measurable results. From discovery to deployment, we're with you every step.
               </p>
-              <Button size="lg" className="gradient-bg border-0 text-primary-foreground rounded-full font-semibold text-base px-8 h-13">
+              <Button size="lg" className="btn-purple-3d rounded-full font-semibold text-base px-8 h-13">
                 Free Consultation
                 <ArrowRight className="ml-2" size={18} />
               </Button>
             </div>
             <div className="lg:w-[45%] shrink-0">
-              <div className="aspect-[4/3] rounded-2xl gradient-bg flex items-center justify-center">
-                <BrainCircuit size={80} className="text-white/80" />
+              <div className="aspect-[4/3] rounded-2xl bg-[hsl(var(--gradient-end)/0.08)] border border-[hsl(var(--gradient-end)/0.15)] p-6 grid grid-cols-2 gap-4">
+                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.12)] flex items-center justify-center">
+                  <BrainCircuit size={40} className="text-[hsl(var(--gradient-end))]" />
+                </div>
+                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.08)] flex items-center justify-center">
+                  <Workflow size={36} className="text-[hsl(var(--gradient-end)/0.7)]" />
+                </div>
+                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.08)] flex items-center justify-center">
+                  <Database size={36} className="text-[hsl(var(--gradient-end)/0.7)]" />
+                </div>
+                <div className="rounded-xl bg-[hsl(var(--gradient-end)/0.12)] flex items-center justify-center">
+                  <Rocket size={40} className="text-[hsl(var(--gradient-end))]" />
+                </div>
               </div>
             </div>
           </div>
@@ -81,8 +92,8 @@ const Process = () => {
                   {step.num}
                 </span>
                 {/* Long arrow */}
-                <div className="flex items-center text-muted-foreground/30 group-hover:text-[hsl(0_0%_100%/0.4)] transition-colors">
-                  <div className="w-12 lg:w-16 h-[1.5px] bg-current" />
+                <div className="flex items-center text-muted-foreground/30 group-hover:text-[hsl(var(--gradient-end))] transition-colors">
+                  <div className="w-20 lg:w-28 h-[1.5px] bg-current" />
                   <ArrowRight size={18} className="-ml-1" />
                 </div>
               </div>

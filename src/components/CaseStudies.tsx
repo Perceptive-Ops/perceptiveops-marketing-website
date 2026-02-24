@@ -1,36 +1,39 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Lightbulb } from "lucide-react";
+import { ArrowRight, Lightbulb, Microscope, ShoppingCart, MessageSquare } from "lucide-react";
 
 const cases = [
   {
     title: "AI Diagnostic System for Biotech Firm",
     desc: "Built a computer vision pipeline that reduced diagnostic turnaround from 5 days to 4 hours, processing 10,000+ samples monthly with 99.2% accuracy.",
     tag: "Healthcare AI",
+    icon: Microscope,
     quote: "This system completely transformed our diagnostic workflow. We went from days of manual review to hours of automated precision.",
     quoteAuthor: "Lab Director",
     quoteCompany: "BioGenesis",
     metric: "99.2% accuracy",
-    color: "bg-[hsl(var(--gradient-start)/0.1)]",
+    color: "bg-[hsl(var(--gradient-end)/0.08)]",
   },
   {
     title: "Multi-Vendor Marketplace Platform",
     desc: "Designed an AI-powered matching algorithm connecting 500+ vendors with enterprise buyers, increasing transaction volume by 340% in 6 months.",
     tag: "E-Commerce",
+    icon: ShoppingCart,
     quote: "The AI matching doubled our conversion rate overnight. We've never seen growth like this before in the marketplace.",
     quoteAuthor: "CEO",
     quoteCompany: "MarketStack",
     metric: "340% growth",
-    color: "bg-[hsl(var(--gradient-end)/0.1)]",
+    color: "bg-[hsl(var(--gradient-end)/0.12)]",
   },
   {
     title: "Enterprise AI Support Chatbot",
     desc: "Deployed a multilingual AI chatbot handling 85% of Tier-1 support tickets autonomously, saving $2M annually in support costs.",
     tag: "Customer Support",
+    icon: MessageSquare,
     quote: "We reinvested the savings straight into product development. The chatbot pays for itself many times over.",
     quoteAuthor: "VP Support",
     quoteCompany: "NovaBridge",
     metric: "$2M saved/yr",
-    color: "bg-[hsl(var(--gradient-start)/0.1)]",
+    color: "bg-[hsl(var(--gradient-end)/0.08)]",
   },
 ];
 
@@ -71,8 +74,9 @@ const CaseStudies = () => {
                   <h3 className="font-display text-2xl lg:text-3xl font-bold mb-5">{c.title}</h3>
 
                   {/* Image placeholder with metric overlay */}
-                  <div className={`relative rounded-xl ${c.color} aspect-[16/9] mb-6 flex items-center justify-center`}>
-                    <span className="font-display text-3xl lg:text-4xl font-bold text-foreground/20">{c.metric}</span>
+                  <div className={`relative rounded-xl ${c.color} border border-[hsl(var(--gradient-end)/0.1)] aspect-[16/9] mb-6 flex items-center justify-center gap-6`}>
+                    <c.icon size={56} className="text-[hsl(var(--gradient-end)/0.4)]" />
+                    <span className="font-display text-3xl lg:text-4xl font-bold text-[hsl(var(--gradient-end)/0.6)]">{c.metric}</span>
                   </div>
 
                   <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
