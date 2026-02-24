@@ -52,7 +52,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <BadgeCheck size={14} className="text-[hsl(var(--gradient-start))]" />
+                  <BadgeCheck size={14} className="text-[hsl(var(--gradient-end))]" />
                   Verified
                 </div>
               </div>

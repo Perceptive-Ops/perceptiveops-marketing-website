@@ -38,7 +38,7 @@ const Hero = () => {
           </p>
 
           <div className="flex justify-center mb-20">
-            <Button size="lg" className="gradient-bg border-0 text-primary-foreground rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
+            <Button size="lg" className="btn-purple-3d rounded-full font-semibold text-base px-8 h-16 uppercase tracking-wide">
               Free Consultation
               <span className="ml-3 w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center">
                 <ArrowRight size={16} />
@@ -58,8 +58,8 @@ const Hero = () => {
             {/* Badges area */}
             <div className="flex items-center gap-4 shrink-0">
               <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background border border-border">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground text-xs font-bold">★</span>
+                <div className="w-8 h-8 rounded-full bg-[hsl(var(--gradient-end))] flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">★</span>
                 </div>
                 <div>
                   <div className="text-xs font-bold text-foreground">5.0</div>
@@ -67,8 +67,8 @@ const Hero = () => {
                 </div>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background border border-border">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground text-xs font-bold">A+</span>
+                <div className="w-8 h-8 rounded-full bg-[hsl(var(--gradient-end))] flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">A+</span>
                 </div>
                 <div>
                   <div className="text-xs font-bold text-foreground">Top Rated</div>

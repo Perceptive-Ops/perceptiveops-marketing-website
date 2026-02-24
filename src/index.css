@@ -146,4 +146,20 @@
     background-color: hsl(var(--gradient-end));
     color: hsl(var(--primary-foreground));
   }
+
+  .btn-purple-3d {
+    background-color: hsl(270 60% 58%);
+    color: white;
+    border: none;
+    border-bottom: 4px solid hsl(270 60% 38%);
+    transition: all 0.15s;
+  }
+  .btn-purple-3d:hover {
+    border-bottom-width: 2px;
+    transform: translateY(2px);
+  }
+  .btn-purple-3d:active {
+    border-bottom-width: 1px;
+    transform: translateY(3px);
+  }
 }
