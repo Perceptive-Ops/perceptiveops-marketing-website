@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { TrendingDown, Zap, Target, BadgeDollarSign } from "lucide-react";
+import SectionBadge from "@/components/SectionBadge";
 
 const results = [
   {
@@ -34,7 +35,7 @@ const Results = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Results That Matter</p>
+          <SectionBadge label="Results That Matter" className="mb-4" />
           <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4">
             Every Automation <span className="gradient-text">Compounds</span>
           </h2>

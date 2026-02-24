@@ -3,6 +3,7 @@ import { Search, PenTool, Code2, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import processApproach from "@/assets/process-approach.jpg";
+import SectionBadge from "@/components/SectionBadge";
 
 const steps = [
   {
@@ -31,7 +32,11 @@ const steps = [
   },
 ];
 
-const Process = () => {
+type ProcessProps = {
+  onBookConsultation: () => void;
+};
+
+const Process = ({ onBookConsultation }: ProcessProps) => {
   return (
     <section id="process" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
@@ -44,16 +49,19 @@ const Process = () => {
         >
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-background text-sm font-medium text-muted-foreground mb-6">
-                Our Process
-              </div>
+              <SectionBadge label="Our Process" className="mb-6" />
               <h2 className="font-display text-3xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
                 From Chaos to Clarity in <span className="highlight-box">4 Phases</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
                 A battle-tested approach that's transformed operations for 200+ businesses.
               </p>
-              <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-13">
+              <Button
+                size="lg"
+                type="button"
+                onClick={onBookConsultation}
+                className="btn btn-primary font-semibold text-base px-8 h-13"
+              >
                 Free Consultation
                 <ArrowRight className="ml-2" size={18} />
               </Button>

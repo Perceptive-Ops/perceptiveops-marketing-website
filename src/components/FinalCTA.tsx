@@ -2,7 +2,11 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail } from "lucide-react";
 
-const FinalCTA = () => {
+type FinalCTAProps = {
+  onBookConsultation: () => void;
+};
+
+const FinalCTA = ({ onBookConsultation }: FinalCTAProps) => {
   return (
     <section id="contact" className="py-24 lg:py-32">
       <div className="container mx-auto px-4 lg:px-8">
@@ -19,12 +23,15 @@ const FinalCTA = () => {
           <p className="text-lg text-[hsl(0_0%_100%/0.6)] mb-10 max-w-xl mx-auto">
             Book a free consultation. We'll audit your operations and show you exactly where AI can save time, cut costs, and accelerate growth.
           </p>
-          <a href="mailto:hello@perceptiveops.com">
-            <Button size="lg" className="btn btn-primary rounded-full font-semibold text-base px-8 h-13 mb-8">
-              Book Your Free Consultation
-              <ArrowRight className="ml-2" size={18} />
-            </Button>
-          </a>
+          <Button
+            size="lg"
+            type="button"
+            onClick={onBookConsultation}
+            className="btn btn-primary font-semibold text-base px-8 h-13 mb-8"
+          >
+            Book Your Free Consultation
+            <ArrowRight className="ml-2" size={18} />
+          </Button>
           <div className="flex items-center justify-center gap-2 text-[hsl(0_0%_100%/0.5)] text-sm">
             <Mail size={16} />
             <a href="mailto:hello@perceptiveops.com" className="hover:text-[hsl(0_0%_100%/0.8)] transition-colors">

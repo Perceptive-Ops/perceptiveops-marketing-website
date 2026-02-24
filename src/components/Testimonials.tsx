@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, BadgeCheck, ArrowRight } from "lucide-react";
+import SectionBadge from "@/components/SectionBadge";
 
 const testimonials = [
   {
@@ -29,7 +30,7 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Testimonials</p>
+          <SectionBadge label="Testimonials" className="mb-4" />
           <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight">
             What Our Clients Say
           </h2>

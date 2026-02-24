@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustedBy from "@/components/TrustedBy";
@@ -9,21 +10,35 @@ import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const Index = () => {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [consultationSource, setConsultationSource] = useState("unknown");
+
+  const openConsultation = (source: string) => {
+    setConsultationSource(source);
+    setIsConsultationOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      <Hero />
+      <Navbar onBookConsultation={() => openConsultation("navbar")} />
+      <Hero onBookConsultation={() => openConsultation("hero")} />
       <TrustedBy />
       <Services />
-      <Process />
+      <Process onBookConsultation={() => openConsultation("process")} />
       <Results />
       <CaseStudies />
       <TechStack />
       <Testimonials />
-      <FinalCTA />
+      <FinalCTA onBookConsultation={() => openConsultation("final-cta")} />
       <Footer />
+      <ConsultationModal
+        open={isConsultationOpen}
+        source={consultationSource}
+        onOpenChange={setIsConsultationOpen}
+      />
     </div>
   );
 };

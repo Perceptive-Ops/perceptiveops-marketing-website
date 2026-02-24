@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,14 +12,28 @@ const navLinks = [
   { label: "Testimonials", href: "#testimonials" },
 ];
 
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
+type NavbarProps = {
+  onBookConsultation: () => void;
+};
+
+const Navbar = ({ onBookConsultation }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const updateHeaderMode = () => {
+      const threshold = Math.max(120, window.innerHeight * 0.72);
+      setScrolledPastHero(window.scrollY > threshold);
+    };
+
+    updateHeaderMode();
+    window.addEventListener("scroll", updateHeaderMode, { passive: true });
+    window.addEventListener("resize", updateHeaderMode);
+
+    return () => {
+      window.removeEventListener("scroll", updateHeaderMode);
+      window.removeEventListener("resize", updateHeaderMode);
+    };
   }, []);
 
   return (
@@ -28,35 +42,44 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/40 backdrop-blur-xl border-b border-white/10 shadow-lg"
+        scrolledPastHero
+          ? "bg-black border-b border-white/10 shadow-lg"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 lg:px-8 h-14 md:h-16 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
         <a href="#" className="flex items-center gap-2 shrink-0">
-          <img src={logo} alt="PerceptiveOps" className="h-[140px] w-auto" />
+          <div className="h-10 md:h-[66px] w-[210px] md:w-[600px]">
+            <img
+              src={logo}
+              alt="PerceptiveOps"
+              className="h-full w-full object-contain object-left scale-[2.5] md:scale-[2.35] origin-left"
+            />
+          </div>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center justify-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-white/60 hover:text-white transition-colors"
+              className="text-[15px] font-medium text-white/60 hover:text-white transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <a href="#contact">
-          <Button size="sm" className="hidden md:inline-flex btn btn-primary rounded-full font-semibold text-sm px-5">
-            Book a Call
-            <ArrowRight className="ml-1.5" size={14} />
-          </Button>
-        </a>
+        <Button
+          size="sm"
+          type="button"
+          onClick={onBookConsultation}
+          className="hidden md:inline-flex items-center justify-self-end rounded-[var(--radius)] font-semibold text-base px-6 h-10 text-white bg-[linear-gradient(135deg,hsl(239_84%_67%),hsl(217_91%_60%))] shadow-[0_8px_28px_rgba(99,102,241,0.35)] hover:opacity-90"
+        >
+          Book a Call
+          <ArrowRight className="ml-1.5" size={14} />
+        </Button>
 
         {/* Mobile menu toggle */}
         <button
@@ -85,12 +108,18 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <a href="#contact">
-            <Button size="sm" className="btn btn-primary rounded-full font-semibold w-full mt-2">
+          <Button
+            size="sm"
+            type="button"
+            onClick={() => {
+              setMenuOpen(false);
+              onBookConsultation();
+            }}
+            className="btn btn-primary font-semibold w-full mt-2"
+          >
               Book a Call
               <ArrowRight className="ml-1.5" size={14} />
-            </Button>
-          </a>
+          </Button>
         </motion.div>
       )}
     </motion.header>

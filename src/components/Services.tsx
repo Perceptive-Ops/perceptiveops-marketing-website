@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Bot, Workflow, BrainCircuit, Rocket, Lightbulb, Database, ArrowUpRight } from "lucide-react";
+import SectionBadge from "@/components/SectionBadge";
 
 const services = [
   {
@@ -44,7 +45,7 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">What We Do</p>
+          <SectionBadge label="What We Do" className="mb-4" />
           <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4">
             AI-Powered Services Built for <span className="gradient-text">Real Impact</span>
           </h2>

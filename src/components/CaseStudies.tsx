@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
-import { Activity, ShoppingCart, Headphones } from "lucide-react";
 import caseHealthcare from "@/assets/case-healthcare.jpg";
 import caseEcommerce from "@/assets/case-ecommerce.jpg";
 import caseSupport from "@/assets/case-support.jpg";
+import SectionBadge from "@/components/SectionBadge";
 
 const cases = [
   {
     title: "AI Diagnostic System for Biotech Firm",
     desc: "Built a computer vision pipeline that reduced diagnostic turnaround from 5 days to 4 hours, processing 10,000+ samples monthly.",
     tag: "Healthcare AI",
-    icon: Activity,
     image: caseHealthcare,
     metrics: [
       { value: "85%", label: "Faster Analysis" },
@@ -21,7 +20,6 @@ const cases = [
     title: "Multi-Vendor Marketplace Platform",
     desc: "Designed an AI-powered matching algorithm connecting 500+ vendors with enterprise buyers, increasing transaction volume.",
     tag: "E-Commerce",
-    icon: ShoppingCart,
     image: caseEcommerce,
     metrics: [
       { value: "90%", label: "Revenue Increase" },
@@ -33,7 +31,6 @@ const cases = [
     title: "Enterprise AI Support Chatbot",
     desc: "Deployed a multilingual AI chatbot handling 85% of Tier-1 support tickets autonomously, saving $2M annually.",
     tag: "Conversational AI",
-    icon: Headphones,
     image: caseSupport,
     metrics: [
       { value: "40%", label: "Faster Response" },
@@ -53,7 +50,7 @@ const CaseStudies = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Case Studies</p>
+          <SectionBadge label="Case Studies" className="mb-4" />
           <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4">
             Proof in the <span className="gradient-text">Results</span>
           </h2>
@@ -76,11 +73,6 @@ const CaseStudies = () => {
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img src={c.image} alt={c.title} className="w-full h-full object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--dark-card))]/80 via-[hsl(var(--dark-card))]/30 to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-2xl bg-[hsl(var(--gradient-start))]/20 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                    <c.icon size={28} className="text-[hsl(var(--gradient-start))]" />
-                  </div>
-                </div>
               </div>
 
               {/* Content */}
@@ -95,7 +87,7 @@ const CaseStudies = () => {
                 <div className="grid grid-cols-3 gap-3 pt-5 border-t border-border">
                   {c.metrics.map((m) => (
                     <div key={m.label} className="text-center">
-                      <div className="font-display text-xl font-bold text-[hsl(var(--gradient-start))]">{m.value}</div>
+                      <div className="font-display text-xl font-bold gradient-text inline-block">{m.value}</div>
                       <div className="text-[11px] text-muted-foreground mt-0.5">{m.label}</div>
                     </div>
                   ))}

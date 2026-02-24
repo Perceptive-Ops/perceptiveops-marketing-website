@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionBadge from "@/components/SectionBadge";
 
 const techs = [
   { name: "Python", color: "hsl(210 80% 55%)" },
@@ -33,9 +34,7 @@ const TechStack = () => {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <p className="text-sm font-medium text-[hsl(0_0%_100%/0.5)] uppercase tracking-widest mb-4">
-            Tech Stack
-          </p>
+          <SectionBadge label="Tech Stack" tone="dark" className="mb-4" />
           <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4 text-[hsl(var(--dark-card-foreground))]">
             Built With the <span className="gradient-text">Best Tools</span>
           </h2>
