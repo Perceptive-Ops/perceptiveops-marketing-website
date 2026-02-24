@@ -29,7 +29,7 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
     >
       <div
-        className={`w-full max-w-5xl flex items-center justify-between h-14 px-6 rounded-full transition-all duration-300 ${
+        className={`w-full max-w-6xl flex items-center justify-between h-14 px-6 rounded-full transition-all duration-300 ${
           scrolled
             ? "bg-background/90 backdrop-blur-xl border border-border shadow-lg"
             : "bg-background/60 backdrop-blur-md border border-border/50"

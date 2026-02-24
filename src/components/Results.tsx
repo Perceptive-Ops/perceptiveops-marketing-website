@@ -1,10 +1,27 @@
 import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 
-const results = [
-  { value: "40%", label: "Average Cost Reduction", desc: "Slash operational costs with intelligent automation" },
-  { value: "3X", label: "Faster Processing", desc: "Accelerate workflows with AI-powered pipelines" },
-  { value: "99%", label: "Model Accuracy", desc: "Production-grade ML models that deliver results" },
-  { value: "10X", label: "ROI in 12 Months", desc: "Measurable returns that compound over time" },
+const rows = [
+  {
+    problem: "High operational costs",
+    solution: "Automate with AI",
+    outcome: "40% cost reduction",
+  },
+  {
+    problem: "Slow processing",
+    solution: "AI-powered pipelines",
+    outcome: "3X faster",
+  },
+  {
+    problem: "Inaccurate predictions",
+    solution: "Custom ML models",
+    outcome: "99% accuracy",
+  },
+  {
+    problem: "Low ROI on tech",
+    solution: "Strategic AI deployment",
+    outcome: "10X ROI",
+  },
 ];
 
 const Results = () => {
@@ -15,32 +32,59 @@ const Results = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="rounded-3xl bg-secondary/60 border border-border p-8 lg:p-14"
         >
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4">Proven Results</p>
-          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight">
-            Numbers That Speak
-          </h2>
-        </motion.div>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-background text-sm font-medium text-muted-foreground mb-6">
+              Outcomes
+            </div>
+            <h2 className="font-display text-3xl lg:text-5xl font-bold tracking-tight mb-4">
+              We find constraints, then solve them for{" "}
+              <span className="highlight-box">massive results</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Our AI solutions don't just improve metrics — they fundamentally transform how your business operates.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-          {results.map((r, i) => (
-            <motion.div
-              key={r.label}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="dark-section rounded-2xl p-8 text-center"
-            >
-              <div className="font-display text-4xl lg:text-5xl font-bold gradient-text mb-2">
-                {r.value}
+          {/* Table */}
+          <div className="rounded-2xl border border-border bg-background overflow-hidden">
+            {/* Header */}
+            <div className="grid grid-cols-3 divide-x divide-border border-b border-border">
+              <div className="p-5 lg:p-6">
+                <span className="font-display font-bold text-sm lg:text-base text-foreground">Problems</span>
               </div>
-              <div className="text-sm font-semibold text-[hsl(var(--dark-card-foreground))] mb-1">{r.label}</div>
-              <div className="text-xs text-[hsl(0_0%_100%/0.5)]">{r.desc}</div>
-            </motion.div>
-          ))}
-        </div>
+              <div className="p-5 lg:p-6">
+                <span className="font-display font-bold text-sm lg:text-base text-foreground">Solutions</span>
+              </div>
+              <div className="p-5 lg:p-6">
+                <span className="font-display font-bold text-sm lg:text-base text-foreground">Outcomes</span>
+              </div>
+            </div>
+
+            {/* Rows */}
+            {rows.map((row, i) => (
+              <div
+                key={i}
+                className={`grid grid-cols-3 divide-x divide-border ${
+                  i < rows.length - 1 ? "border-b border-border" : ""
+                }`}
+              >
+                <div className="p-5 lg:p-6 flex items-center">
+                  <span className="text-sm text-muted-foreground">{row.problem}</span>
+                </div>
+                <div className="p-5 lg:p-6 flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-[hsl(var(--gradient-start))] shrink-0" />
+                  <span className="text-sm text-foreground">{row.solution}</span>
+                </div>
+                <div className="p-5 lg:p-6 flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-[hsl(var(--gradient-start))] shrink-0" />
+                  <span className="text-sm font-semibold text-foreground">{row.outcome}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

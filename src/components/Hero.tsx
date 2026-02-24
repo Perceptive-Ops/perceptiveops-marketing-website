@@ -1,20 +1,19 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const stats = [
   { value: "200+", label: "AI Models Deployed" },
-  { value: "$50M+", label: "Client Revenue Impact" },
-  { value: "98%", label: "Client Retention" },
   { value: "50K+", label: "Hours Automated" },
+  { value: "98%", label: "Client Retention" },
 ];
 
 const Hero = () => {
   return (
     <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
       {/* Subtle background blurs */}
-      <div className="absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(var(--gradient-start)/0.04)] blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(var(--gradient-end)/0.04)] blur-3xl pointer-events-none" />
+      <div className="absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(var(--gradient-start)/0.03)] blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[hsl(var(--gradient-end)/0.03)] blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative">
         <motion.div
@@ -30,7 +29,7 @@ const Hero = () => {
 
           <h1 className="font-display text-5xl sm:text-6xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-8">
             We Build AI Systems<br className="hidden sm:block" /> That{" "}
-            <span className="gradient-text">Run Your<br className="hidden sm:block" /> Operations</span>
+            <span className="highlight-box">Run Your Operations</span>
           </h1>
 
           <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -38,14 +37,12 @@ const Hero = () => {
             — so your team works smarter, scales faster, and ships with confidence.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-            <Button size="lg" className="bg-primary text-primary-foreground rounded-full font-semibold text-base px-8 h-13">
-              Get Free Consultation
-              <ArrowRight className="ml-2" size={18} />
-            </Button>
-            <Button size="lg" variant="outline" className="rounded-full font-semibold text-base px-8 h-13 border-border">
-              <Play size={16} className="mr-2" />
-              See Our Work
+          <div className="flex justify-center mb-20">
+            <Button size="lg" className="bg-primary text-primary-foreground rounded-full font-semibold text-base px-8 h-14 uppercase tracking-wide">
+              Free Consultation
+              <span className="ml-3 w-8 h-8 rounded-full bg-primary-foreground/20 flex items-center justify-center">
+                <ArrowRight size={16} />
+              </span>
             </Button>
           </div>
         </motion.div>
@@ -57,15 +54,43 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="max-w-4xl mx-auto rounded-2xl border border-border bg-secondary/50 p-6 lg:p-8"
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x divide-border">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center px-4">
-                <div className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-1">
-                  {stat.value}
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            {/* Badges area */}
+            <div className="flex items-center gap-4 shrink-0">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background border border-border">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                  <span className="text-primary-foreground text-xs font-bold">★</span>
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div>
+                  <div className="text-xs font-bold text-foreground">5.0</div>
+                  <div className="text-[10px] text-muted-foreground">Clutch</div>
+                </div>
               </div>
-            ))}
+              <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-background border border-border">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                  <span className="text-primary-foreground text-xs font-bold">A+</span>
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-foreground">Top Rated</div>
+                  <div className="text-[10px] text-muted-foreground">Upwork</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden lg:block w-px h-12 bg-border" />
+
+            {/* Stats */}
+            <div className="flex-1 grid grid-cols-3 divide-x divide-border">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center px-4">
+                  <div className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-muted-foreground">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
