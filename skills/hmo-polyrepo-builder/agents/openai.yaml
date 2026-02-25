@@ -1,0 +1,4 @@
+interface:
+  display_name: "HMO Polyrepo Builder"
+  short_description: "Build and resume HMO polyrepo delivery from git state"
+  default_prompt: "Use $hmo-polyrepo-builder to resume implementation in /Users/bleckcorp/IdeaProjects/HmoApp from current commits/diffs, align work to PRD and sprint docs, and run the required validation commands."

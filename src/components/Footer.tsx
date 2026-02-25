@@ -35,7 +35,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <a href="#home" className="inline-block">
-              <img src={logo} alt="Perceptive Ops" className="h-[140px] w-auto mb-4 brightness-0 invert" />
+              <div className="h-[84px] md:h-24 w-[390px] md:w-[480px] overflow-hidden flex items-center mb-4">
+                <img
+                  src={logo}
+                  alt="Perceptive Ops"
+                  className="h-[210%] w-auto max-w-none object-contain object-left -translate-x-[5%]"
+                />
+              </div>
             </a>
             <p className="text-sm text-[hsl(0_0%_100%/0.5)] leading-relaxed">
               AI-powered operations and automation for businesses that want to scale smarter, not harder.

@@ -47,13 +47,13 @@ const Process = ({ onBookConsultation }: ProcessProps) => {
           viewport={{ once: true }}
           className="rounded-3xl bg-secondary/60 border border-border p-8 lg:p-14 mb-12"
         >
-          <div className="flex flex-col lg:flex-row gap-10 items-center">
-            <div className="flex-1">
+          <div className="flex flex-col gap-10 items-center text-center">
+            <div className="max-w-3xl mx-auto">
               <SectionBadge label="Our Process" className="mb-6" />
-              <h2 className="font-display text-3xl lg:text-5xl font-bold tracking-tight mb-6 leading-tight">
+              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] mb-6 leading-tight">
                 From Chaos to Clarity in <span className="highlight-box">4 Phases</span>
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8 max-w-lg">
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
                 A battle-tested approach that's transformed operations for 200+ businesses.
               </p>
               <Button
@@ -62,11 +62,11 @@ const Process = ({ onBookConsultation }: ProcessProps) => {
                 onClick={onBookConsultation}
                 className="btn btn-primary font-semibold text-base px-8 h-13"
               >
-                Free Consultation
+                Get Free Consultation
                 <ArrowRight className="ml-2" size={18} />
               </Button>
             </div>
-            <div className="lg:w-[45%] shrink-0">
+            <div className="w-full max-w-3xl shrink-0">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden">
                 <img src={processApproach} alt="AI-powered operations approach" className="w-full h-full object-cover" loading="lazy" />
               </div>

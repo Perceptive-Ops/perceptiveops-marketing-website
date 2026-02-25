@@ -35,7 +35,7 @@ const TechStack = () => {
           className="text-center mb-14"
         >
           <SectionBadge label="Tech Stack" tone="dark" className="mb-4" />
-          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4 text-[hsl(var(--dark-card-foreground))]">
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] mb-4 text-[hsl(var(--dark-card-foreground))]">
             Built With the <span className="gradient-text">Best Tools</span>
           </h2>
           <p className="text-[hsl(0_0%_100%/0.6)] max-w-2xl mx-auto">

@@ -46,8 +46,10 @@ const Services = () => {
           className="text-center mb-16"
         >
           <SectionBadge label="What We Do" className="mb-4" />
-          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight mb-4">
-            AI-Powered Services Built for <span className="gradient-text">Real Impact</span>
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em] mb-4">
+            AI-Powered Services Built
+            <br />
+            for <span className="gradient-text">Real Impact</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             From strategy to deployment — we handle the full stack of AI transformation so you can focus on growth.

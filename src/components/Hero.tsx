@@ -116,27 +116,26 @@ const Hero = ({ onBookConsultation }: HeroProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="max-w-[1200px] mx-auto text-center"
+          className="max-w-[1200px] mx-auto text-center pt-2 md:pt-4"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(99,102,241,0.25)] bg-[rgba(99,102,241,0.1)] text-xs sm:text-sm font-medium text-[#c4b5fd] mb-6 sm:mb-8 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8] animate-pulse" />
             NOW ACCEPTING NEW CLIENTS
           </div>
 
-          <h1 className="font-display text-[clamp(3.6rem,8vw,6.3rem)] font-black tracking-[-0.035em] leading-[0.98] mb-6 sm:mb-8 text-white max-w-[980px] mx-auto">
-            <span className="block">
+          <h1 className="font-display text-[clamp(3rem,7vw,5.5rem)] font-black tracking-[-0.03em] leading-[1.05] mb-6 sm:mb-8 text-white max-w-[1060px] mx-auto">
+            <span className="block xl:whitespace-nowrap">
               We Build <span className="gradient-text">AI Systems</span>
             </span>
-            <span className="block">That Run Your</span>
-            <span className="block">Operations</span>
+            <span className="block xl:whitespace-nowrap">That Run Your Operations</span>
           </h1>
 
-          <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-white/65 max-w-3xl mx-auto mb-10 sm:mb-12 leading-[1.5]">
+          <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-white/65 max-w-[640px] mx-auto mb-10 sm:mb-12 leading-[1.6]">
             We audit, automate, and optimize your business with custom AI solutions
             — so your team works smarter, scales faster, and ships with confidence.
           </p>
 
-          <div className="flex flex-col items-center sm:flex-row justify-center gap-4 mb-14 sm:mb-20">
+          <div className="flex flex-col items-center sm:flex-row justify-center gap-4 mb-14 sm:mb-20 lg:mb-24">
             <Button
               size="lg"
               type="button"
@@ -158,7 +157,7 @@ const Hero = ({ onBookConsultation }: HeroProps) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="max-w-5xl mx-auto mt-16 sm:mt-20 lg:mt-24"
+          className="max-w-5xl mx-auto mt-16 sm:mt-20 lg:mt-16"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
               {stats.map((stat) => (

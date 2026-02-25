@@ -31,8 +31,8 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <SectionBadge label="Testimonials" className="mb-4" />
-          <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight">
-            What Our Clients Say
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold tracking-[-0.02em]">
+            What Our <span className="gradient-text">Clients Say</span>
           </h2>
         </motion.div>
 

@@ -42,30 +42,29 @@ const Navbar = ({ onBookConsultation }: NavbarProps) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolledPastHero
+      className={`fixed top-0 left-0 right-0 z-50 pt-[5px] transition-all duration-300 ${scrolledPastHero
           ? "bg-black border-b border-white/10 shadow-lg"
           : "bg-transparent border-b border-transparent"
-      }`}
+        }`}
     >
-      <div className="container mx-auto px-4 lg:px-8 h-14 md:h-16 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
-        <a href="#home" className="flex items-center gap-2 shrink-0">
-          <div className="h-10 md:h-[66px] w-[210px] md:w-[600px]">
+      <div className="container relative mx-auto px-4 lg:px-8 h-20 md:h-24 flex items-center justify-between">
+        <a href="#home" className="flex items-center gap-2 shrink-0 py-2">
+          <div className="h-[84px] md:h-24 w-[390px] md:w-[480px] overflow-hidden flex items-center">
             <img
               src={logo}
-              alt="PerceptiveOps"
-              className="h-full w-full object-contain object-left scale-[2.5] md:scale-[2.35] origin-left"
+              alt="Perceptive Ops"
+              className="h-[210%] w-auto max-w-none object-contain object-left -translate-x-[5%]"
             />
           </div>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center justify-center gap-8">
+        <nav className="hidden md:flex items-center justify-center gap-5 xl:gap-7 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-[15px] font-medium text-white/60 hover:text-white transition-colors"
+              className="py-2 whitespace-nowrap text-sm xl:text-[15px] font-medium text-white/60 hover:text-white transition-colors"
             >
               {link.label}
             </a>
@@ -118,8 +117,8 @@ const Navbar = ({ onBookConsultation }: NavbarProps) => {
             }}
             className="btn btn-primary font-semibold w-full mt-2"
           >
-              Book a Call
-              <ArrowRight className="ml-1.5" size={14} />
+            Book a Call
+            <ArrowRight className="ml-1.5" size={14} />
           </Button>
         </motion.div>
       )}
