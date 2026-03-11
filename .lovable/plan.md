@@ -64,7 +64,7 @@ Create a new component matching the uploaded dark-background screenshot:
 - Heading: "Built With the **Best Tools**" (last two words in gradient text)
 - Subtitle: "We're tech-agnostic. We choose what's right for your project, not what's trendy."
 - Grid of pill/chip elements, each with a small colored dot and tech name
-- Technologies: Python, TensorFlow, PyTorch, OpenAI, Claude / Anthropic, LangChain, AWS, Google Cloud, Azure, Next.js, React, Node.js, Flutter, FastAPI, Make.com, n8n, PostgreSQL, Pinecone, Docker, Kubernetes
+- Technologies: Python, TensorFlow, PyTorch, OpenAI, Claude / Anthropic, LangChain, AWS, Google Cloud, Azure, Next.js, React, Node.js, Flutter, FastAPI, PostgreSQL, Pinecone, Docker, Kubernetes
 - Each pill: rounded border, dark background, subtle border, colored dot (varied colors like green, red, purple, cyan, orange, blue)
 - Centered, wrapping layout using `flex flex-wrap justify-center gap-3`
 
