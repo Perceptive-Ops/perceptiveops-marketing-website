@@ -1,5 +1,5 @@
 import logo from "@/assets/perceptive-ops-logo.png";
-import { Linkedin, Github } from "lucide-react";
+import { Linkedin, Github, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const serviceLinks = [
@@ -24,6 +24,7 @@ const companyLinks = [
 const connectLinks = [
   { label: "hello@perceptiveops.com", href: "mailto:hello@perceptiveops.com" },
   { label: "LinkedIn", href: "https://www.linkedin.com/company/perceptive-ops" },
+  { label: "Instagram", href: "https://www.instagram.com/perceptiveops?igsh=MWlqdTExbjl3aTZicA==" },
   { label: "Twitter / X", href: "https://x.com/perceptiveops" },
   { label: "GitHub", href: "https://github.com/perceptiveops" },
 ];
@@ -129,6 +130,9 @@ const Footer = ({ variant = "default" }: FooterProps) => {
             </a>
             <a href="https://www.linkedin.com/company/perceptive-ops" target="_blank" rel="noopener noreferrer" className={iconClassName} aria-label="LinkedIn">
               <Linkedin size={16} />
+            </a>
+            <a href="https://www.instagram.com/perceptiveops?igsh=MWlqdTExbjl3aTZicA==" target="_blank" rel="noopener noreferrer" className={iconClassName} aria-label="Instagram">
+              <Instagram size={16} />
             </a>
             <a href="https://github.com/perceptiveops" target="_blank" rel="noopener noreferrer" className={iconClassName} aria-label="GitHub">
               <Github size={16} />

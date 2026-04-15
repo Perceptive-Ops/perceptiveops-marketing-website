@@ -8,6 +8,8 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 import NotFound from "@/pages/NotFound";
+import VideoModal from "@/components/VideoModal";
+import { Play } from "lucide-react";
 
 import realEstateImg from "@/assets/case-studies/real-estate.png";
 import apAutomationImg from "@/assets/case-studies/ap-automation.png";
@@ -38,10 +40,16 @@ const CinematicHero = ({
   title,
   subtitle,
   image,
+  onScrollClick,
+  onPlayClick,
+  hasVideo,
 }: {
   title: string;
   subtitle: string;
   image: string;
+  onScrollClick: () => void;
+  onPlayClick: () => void;
+  hasVideo: boolean;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -55,7 +63,7 @@ const CinematicHero = ({
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-[#05070f] text-white"
+      className="relative h-[100svh] min-h-[500px] w-full overflow-hidden bg-[#05070f] text-white"
     >
       <motion.div style={{ scale, y }} className="absolute inset-0">
         <img
@@ -67,26 +75,10 @@ const CinematicHero = ({
       <div className="absolute inset-0 bg-gradient-to-b from-[#05070f]/85 via-[#05070f]/40 to-[#05070f]" />
       <div className="absolute inset-0 bg-gradient-to-tr from-[#9b5de5]/20 via-transparent to-[#497cff]/25 mix-blend-screen" />
 
-      {/* Breadcrumb */}
-      <div className="absolute inset-x-0 top-28 z-10">
-        <div className="container mx-auto px-6 lg:px-12">
-          <Link
-            to="/case-studies"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-white/70 backdrop-blur-md transition hover:border-white/30 hover:text-white"
-          >
-            <ArrowLeft
-              size={12}
-              className="transition-transform group-hover:-translate-x-0.5"
-            />
-            All case studies
-          </Link>
-        </div>
-      </div>
-
       {/* Title block */}
       <motion.div
         style={{ opacity: fade }}
-        className="absolute inset-x-0 bottom-0 z-10 pb-20 md:pb-28"
+        className="absolute inset-x-0 bottom-0 z-10 pb-20 md:pb-24"
       >
         <div className="container mx-auto px-6 lg:px-12">
           <motion.p
@@ -113,38 +105,71 @@ const CinematicHero = ({
           >
             {subtitle}
           </motion.p>
+
+          {hasVideo && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-10"
+            >
+              <button
+                onClick={onPlayClick}
+                className="group flex items-center gap-4 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-bold uppercase tracking-wider backdrop-blur-md transition hover:bg-white hover:text-[#05070f]"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#9b5de5] text-white transition-transform group-hover:scale-110">
+                  <Play size={18} fill="currentColor" />
+                </div>
+                Watch the Story
+              </button>
+            </motion.div>
+          )}
         </div>
       </motion.div>
 
       {/* Scroll cue */}
       <motion.div
         style={{ opacity: fade }}
-        className="absolute inset-x-0 bottom-6 z-10 flex justify-center"
+        className="absolute inset-x-0 bottom-8 z-10 flex justify-center"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-1 text-[10px] font-bold uppercase tracking-[0.3em] text-white/50"
+        <button
+          onClick={onScrollClick}
+          className="group flex flex-col items-center gap-1 transition-opacity hover:opacity-100"
         >
-          Scroll
-          <ChevronDown size={14} />
-        </motion.div>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-1 text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-white"
+          >
+            Scroll
+            <ChevronDown size={14} />
+          </motion.div>
+        </button>
       </motion.div>
     </section>
   );
 };
 
 /* ----------------- Challenge ----------------- */
-const ChallengeSection = ({ statements }: { statements: string[] }) => (
-  <section className="relative bg-[#f7f9fb] py-28 lg:py-40">
-    <div className="container mx-auto grid gap-16 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-12">
+const ChallengeSection = ({
+  statements,
+  sectionRef,
+}: {
+  statements: string[];
+  sectionRef: React.RefObject<HTMLDivElement>;
+}) => (
+  <section
+    ref={sectionRef}
+    className="relative scroll-mt-24 bg-[#f7f9fb] py-[clamp(2.5rem,6vh,4rem)]"
+  >
+    <div className="container mx-auto grid gap-8 px-6 lg:grid-cols-[0.8fr,1.2fr] lg:px-12">
       <div className="lg:sticky lg:top-40 lg:h-fit">
         <SectionNumber n="01" label="The Challenge" />
         <h2 className="mt-6 font-display text-4xl font-black leading-[1.05] tracking-[-0.03em] text-slate-950 md:text-5xl">
           What was breaking<span className="text-[#9b5de5]">.</span>
         </h2>
       </div>
-      <ul className="space-y-10">
+      <ul className="space-y-6">
         {statements.map((s, i) => (
           <motion.li
             key={i}
@@ -160,7 +185,7 @@ const ChallengeSection = ({ statements }: { statements: string[] }) => (
             <p className="text-xl font-semibold leading-snug text-slate-800 md:text-2xl">
               {s}
             </p>
-            <div className="mt-6 h-px w-full bg-gradient-to-r from-slate-300 via-slate-200 to-transparent" />
+            <div className="mt-4 h-px w-full bg-gradient-to-r from-slate-300 via-slate-200 to-transparent" />
           </motion.li>
         ))}
       </ul>
@@ -168,119 +193,101 @@ const ChallengeSection = ({ statements }: { statements: string[] }) => (
   </section>
 );
 
-/* ----------------- Workflow (pinned) ----------------- */
+/* ----------------- Workflow ----------------- */
 const WorkflowSection = ({
   steps,
+  video,
 }: {
   steps: Array<{ title: string; description: string }>;
+  video: {
+    placeholderTitle: string;
+    placeholderDescription: string;
+    loomEmbedUrl?: string;
+  };
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
-  });
-
   return (
-    <section
-      ref={ref}
-      className="relative overflow-hidden bg-[#05070f] text-white"
-      style={{ minHeight: `${100 + steps.length * 60}vh` }}
-    >
+    <section className="relative overflow-hidden bg-[#05070f] py-[clamp(2.5rem,6vh,4rem)] text-white">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(50% 40% at 25% 10%, rgba(155,93,229,0.18), transparent 70%), radial-gradient(50% 40% at 85% 80%, rgba(73,124,255,0.22), transparent 70%)",
+            "radial-gradient(50% 40% at 25% 10%, rgba(155,93,229,0.12), transparent 70%), radial-gradient(50% 40% at 85% 80%, rgba(73,124,255,0.15), transparent 70%)",
         }}
       />
-      <div className="sticky top-0 flex h-screen items-center">
-        <div className="container mx-auto grid w-full gap-16 px-6 lg:grid-cols-2 lg:px-12">
-          {/* Left: pinned diagram */}
-          <div className="relative hidden h-[480px] lg:block">
-            <SectionNumber n="02" label="The Workflow" />
-            <div className="mt-12">
-              <svg viewBox="0 0 400 440" className="h-full w-full max-w-[420px]">
-                <defs>
-                  <linearGradient id="wflow" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#9b5de5" />
-                    <stop offset="60%" stopColor="#497cff" />
-                    <stop offset="100%" stopColor="#00c8ff" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  d="M60 40 C 180 40, 60 180, 200 180 S 340 320, 200 420"
-                  stroke="url(#wflow)"
-                  strokeWidth="2.5"
-                  fill="none"
-                  strokeLinecap="round"
-                  style={{ pathLength: scrollYProgress }}
-                />
-                {steps.map((_, i) => {
-                  const cy = 40 + (400 / Math.max(steps.length - 1, 1)) * i;
-                  const cx = i % 2 === 0 ? 60 : 340;
-                  return (
-                    <motion.circle
-                      key={i}
-                      cx={cx}
-                      cy={cy}
-                      r={12}
-                      fill="#05070f"
-                      stroke="url(#wflow)"
-                      strokeWidth="3"
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
-                    />
-                  );
-                })}
-              </svg>
-            </div>
-          </div>
-          {/* Right: scrolling copy */}
-          <div>
-            <div className="lg:hidden">
-              <SectionNumber n="02" label="The Workflow" />
-              <div className="h-8" />
-            </div>
-            <h2 className="font-display text-4xl font-black leading-[1.05] tracking-[-0.03em] md:text-5xl">
-              How it <span className="italic text-[#9b5de5]">moves</span>.
-            </h2>
-            <div className="mt-10 space-y-10">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20%" }}
-                  transition={{ duration: 0.6, delay: i * 0.05 }}
-                  className="relative rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm"
+      <div className="container mx-auto grid gap-12 px-6 lg:grid-cols-[0.8fr,1.2fr] lg:px-12">
+        {/* Left: Sticky label */}
+        <div className="lg:sticky lg:top-40 lg:h-fit">
+          <SectionNumber n="02" label="The Workflow" />
+          <h2 className="mt-6 font-display text-4xl font-black leading-[1.05] tracking-[-0.03em] md:text-5xl">
+            How it <span className="italic text-[#9b5de5]">works</span>.
+          </h2>
+          <div className="mt-8 space-y-4">
+            {steps.map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex items-start gap-4"
+              >
+                <span
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full font-display text-xs font-black text-white"
+                  style={{
+                    background: "linear-gradient(135deg,#9b5de5,#497cff)",
+                  }}
                 >
-                  <div className="mb-3 flex items-center gap-3">
-                    <span
-                      className="flex h-9 w-9 items-center justify-center rounded-full font-display text-sm font-black text-white"
-                      style={{
-                        background:
-                          "linear-gradient(135deg,#9b5de5,#497cff)",
-                      }}
-                    >
-                      {i + 1}
-                    </span>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/50">
-                      Step {String(i + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <h3 className="font-display text-xl font-bold md:text-2xl">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-white">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/70 md:text-base">
+                  <p className="mt-1 text-sm leading-relaxed text-white/50">
                     {step.description}
                   </p>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
+        </div>
+
+        {/* Right: Video Embed */}
+        <div className="relative">
+          <div className="group relative aspect-video overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] shadow-2xl backdrop-blur-md">
+            {video.loomEmbedUrl ? (
+              <iframe
+                src={`${video.loomEmbedUrl}?hide_owner=true&hide_share=true&hide_title=true&hide_embed_params=true`}
+                frameBorder="0"
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            ) : (
+              <div className="flex h-full w-full flex-col items-center justify-center bg-slate-900/50 p-12 text-center">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white/5 text-[#9b5de5]">
+                  <ArrowUpRight size={32} />
+                </div>
+                <h3 className="font-display text-2xl font-bold text-white">
+                  {video.placeholderTitle}
+                </h3>
+                <p className="mt-3 max-w-md text-base text-white/50">
+                  {video.placeholderDescription}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Decorative element */}
+          <div
+            aria-hidden
+            className="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full blur-3xl opacity-20"
+            style={{
+              background: "linear-gradient(135deg,#9b5de5,#497cff)",
+            }}
+          />
         </div>
       </div>
     </section>
@@ -292,59 +299,62 @@ const OutcomesSection = ({
   outcomes,
 }: {
   outcomes: Array<{ value: string; label: string; description: string }>;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-25%" });
-
-  return (
-    <section ref={ref} className="relative bg-[#f7f9fb] py-28 lg:py-40">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="mb-20 max-w-3xl">
-          <SectionNumber n="03" label="The Outcomes" />
-          <h2 className="mt-6 font-display text-4xl font-black leading-[1.05] tracking-[-0.03em] text-slate-950 md:text-6xl">
-            What moved{" "}
-            <span className="gradient-text font-serif italic">materially</span>.
-          </h2>
-        </div>
-
-        <div className="grid gap-px overflow-hidden rounded-[32px] bg-slate-200 md:grid-cols-3">
-          {outcomes.map((o, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.12 }}
-              className="relative flex flex-col justify-between bg-white p-8 md:p-10"
-            >
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">
-                  {o.label}
-                </span>
-                <p
-                  className="mt-6 font-serif italic leading-none tracking-[-0.04em]"
-                  style={{
-                    fontSize: "clamp(2.5rem,6vw,4.5rem)",
-                    background:
-                      "linear-gradient(135deg,#9b5de5,#497cff 60%,#00c8ff)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  {o.value}
-                </p>
-              </div>
-              <p className="mt-8 text-base leading-relaxed text-slate-600">
-                {o.description}
-              </p>
-              <span className="absolute left-0 top-0 h-[3px] w-12 bg-gradient-to-r from-[#9b5de5] to-[#497cff]" />
-            </motion.div>
-          ))}
-        </div>
+}) => (
+  <section className="relative bg-[#f7f9fb] py-[clamp(2.5rem,6vh,4rem)]">
+    <div className="container mx-auto grid gap-8 px-6 lg:grid-cols-[0.8fr,1.2fr] lg:px-12">
+      {/* Left: Sticky label */}
+      <div className="lg:sticky lg:top-40 lg:h-fit">
+        <SectionNumber n="03" label="The Outcomes" />
+        <h2 className="mt-6 font-display text-4xl font-black leading-[1.05] tracking-[-0.03em] text-slate-950 md:text-5xl">
+          What changed{" "}
+          <span className="gradient-text font-serif italic">materially</span>.
+        </h2>
       </div>
-    </section>
-  );
-};
+
+      {/* Right: Outcomes list */}
+      <div className="space-y-4">
+        {outcomes.map((o, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            className="group relative flex flex-col justify-between overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 transition hover:border-slate-300 md:p-10"
+          >
+            <div
+              className="absolute left-0 top-0 h-[4px] w-full"
+              style={{
+                background: "linear-gradient(90deg,#9b5de5,#497cff)",
+              }}
+            />
+            <div className="flex flex-col gap-6 md:flex-row md:items-baseline md:justify-between">
+              <p
+                className="font-serif italic leading-none tracking-[-0.04em]"
+                style={{
+                  fontSize: "clamp(2.5rem,6vw,4.5rem)",
+                  background:
+                    "linear-gradient(135deg,#9b5de5,#497cff 60%,#00c8ff)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                {o.value}
+              </p>
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">
+                {o.label}
+              </span>
+            </div>
+            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+              {o.description}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 /* ----------------- Reusability + Platform ----------------- */
 const ReusabilitySection = ({
@@ -354,18 +364,23 @@ const ReusabilitySection = ({
   industries: string[];
   platform: string[];
 }) => (
-  <section className="relative bg-white py-28 lg:py-40">
-    <div className="container mx-auto grid gap-20 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
-      <div>
+  <section className="relative bg-white py-[clamp(2.5rem,6vh,4rem)]">
+    <div className="container mx-auto grid gap-8 px-6 lg:grid-cols-[0.8fr,1.2fr] lg:px-12">
+      {/* Left: Sticky label */}
+      <div className="lg:sticky lg:top-40 lg:h-fit">
         <SectionNumber n="04" label="Where it lands" />
-        <h2 className="mt-6 font-display text-4xl font-black leading-[0.95] tracking-[-0.03em] text-slate-950 md:text-6xl">
-          It travels.
+        <h2 className="mt-6 font-display text-4xl font-black leading-[0.95] tracking-[-0.03em] text-slate-950 md:text-5xl">
+          How it can be applied.
         </h2>
-        <p className="mt-6 max-w-md text-base leading-relaxed text-slate-600">
+        <p className="mt-6 max-w-sm text-base leading-relaxed text-slate-600">
           The same shape works anywhere operators are drowning in intake,
-          triage, and handoffs. A few industries where this has landed clean:
+          triage, and handoffs.
         </p>
-        <ul className="mt-10 divide-y divide-slate-200">
+      </div>
+
+      {/* Right: Industries + Platform */}
+      <div className="space-y-12">
+        <ul className="divide-y divide-slate-200">
           {industries.map((ind, i) => (
             <motion.li
               key={ind}
@@ -373,9 +388,9 @@ const ReusabilitySection = ({
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="group flex items-baseline justify-between py-5"
+              className="group flex items-baseline justify-between py-6"
             >
-              <span className="font-display text-2xl font-black tracking-tight text-slate-900 transition group-hover:text-[#497cff] md:text-3xl">
+              <span className="font-display text-3xl font-black tracking-tight text-slate-900 transition group-hover:text-[#497cff] md:text-4xl">
                 {ind}
               </span>
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">
@@ -384,56 +399,56 @@ const ReusabilitySection = ({
             </motion.li>
           ))}
         </ul>
-      </div>
 
-      <div
-        className="relative rounded-[32px] p-10"
-        style={{
-          background: "linear-gradient(155deg,#0d1220,#131b2e 55%,#1c2540)",
-        }}
-      >
         <div
-          aria-hidden
-          className="absolute inset-x-0 top-0 h-[2px] rounded-t-[32px]"
+          className="relative overflow-hidden rounded-[40px] p-10 md:p-14"
           style={{
-            background:
-              "linear-gradient(90deg,transparent,#9b5de5,#497cff,transparent)",
+            background: "linear-gradient(155deg,#0d1220,#131b2e 55%,#1c2540)",
           }}
-        />
-        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#b8c7ff]">
-          Platform flexibility
-        </p>
-        <h3 className="mt-4 font-display text-3xl font-black leading-tight text-white md:text-4xl">
-          Tool-agnostic <span className="italic text-[#9b5de5]">by default.</span>
-        </h3>
-        <ul className="mt-8 space-y-5">
-          {platform.map((p, i) => (
-            <motion.li
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="flex items-start gap-4"
-            >
-              <span
-                className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
-                style={{
-                  background: "linear-gradient(135deg,#9b5de5,#497cff)",
-                }}
+        >
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-[4px]"
+            style={{
+              background: "linear-gradient(90deg,#9b5de5,#497cff,#00c8ff)",
+            }}
+          />
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#b8c7ff]">
+            Platform flexibility
+          </p>
+          <h3 className="mt-6 font-display text-3xl font-black leading-tight text-white md:text-5xl">
+            Tool-agnostic <span className="italic text-[#9b5de5]">by default.</span>
+          </h3>
+          <ul className="mt-10 space-y-6">
+            {platform.map((p, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="flex items-start gap-5"
               >
-                <Check size={12} strokeWidth={3} className="text-white" />
-              </span>
-              <span className="text-sm leading-relaxed text-white/75 md:text-base">
-                {p}
-              </span>
-            </motion.li>
-          ))}
-        </ul>
+                <span
+                  className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
+                  style={{
+                    background: "linear-gradient(135deg,#9b5de5,#497cff)",
+                  }}
+                >
+                  <Check size={14} strokeWidth={3} className="text-white" />
+                </span>
+                <span className="text-lg leading-relaxed text-white/75">
+                  {p}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 );
+
 
 /* ----------------- Adjacent Workflows ----------------- */
 const AdjacentSection = ({
@@ -441,7 +456,7 @@ const AdjacentSection = ({
 }: {
   items: Array<{ name: string; description: string }>;
 }) => (
-  <section className="relative bg-[#f6f7fb] py-28 lg:py-36">
+  <section className="relative bg-[#f6f7fb] py-[clamp(2rem,5vh,3.5rem)]">
     <div className="container mx-auto px-6 lg:px-12">
       <div className="mb-14 flex items-end justify-between gap-8">
         <div className="max-w-2xl">
@@ -503,7 +518,7 @@ const CtaSection = ({
   primary: string;
   onBook: () => void;
 }) => (
-  <section className="relative overflow-hidden bg-[#05070f] py-28 lg:py-40">
+  <section className="relative overflow-hidden bg-[#05070f] py-[clamp(2.5rem,6vh,4rem)]">
     <div
       aria-hidden
       className="absolute inset-x-0 top-0 h-[2px]"
@@ -561,7 +576,7 @@ const CtaSection = ({
 const MoreStrip = ({ currentSlug }: { currentSlug: string }) => {
   const others = caseStudies.filter((c) => c.slug !== currentSlug);
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-8">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="mb-10 flex items-end justify-between">
           <h2 className="font-display text-2xl font-black tracking-tight text-slate-950 md:text-3xl">
@@ -605,15 +620,26 @@ const CaseStudyDetailPage = () => {
   const { slug } = useParams();
   const caseStudy = getCaseStudyBySlug(slug);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [consultationSource, setConsultationSource] = useState(
     `case-study-${slug ?? "unknown"}`,
   );
+  const challengeRef = useRef<HTMLDivElement>(null);
 
   if (!caseStudy) return <NotFound />;
+
+  const envVideoUrl = import.meta.env[
+    `VITE_LOOM_URL_${caseStudy.slug.toUpperCase().replace(/-/g, "_")}`
+  ];
+  const effectiveVideoUrl = envVideoUrl || caseStudy.video.loomEmbedUrl;
 
   const openConsultation = (source: string) => {
     setConsultationSource(source);
     setIsConsultationOpen(true);
+  };
+
+  const scrollToChallenge = () => {
+    challengeRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -625,9 +651,18 @@ const CaseStudyDetailPage = () => {
           title={caseStudy.title}
           subtitle={caseStudy.heroSubtitle}
           image={imageMap[caseStudy.slug]}
+          onScrollClick={scrollToChallenge}
+          onPlayClick={() => setIsVideoModalOpen(true)}
+          hasVideo={!!effectiveVideoUrl}
         />
-        <ChallengeSection statements={caseStudy.challengeStatements} />
-        <WorkflowSection steps={caseStudy.workflowSummary} />
+        <ChallengeSection
+          statements={caseStudy.challengeStatements}
+          sectionRef={challengeRef}
+        />
+        <WorkflowSection
+          steps={caseStudy.workflowSummary}
+          video={{ ...caseStudy.video, loomEmbedUrl: effectiveVideoUrl }}
+        />
         <OutcomesSection outcomes={caseStudy.outcomes} />
         <ReusabilitySection
           industries={caseStudy.reusableIndustries}
@@ -642,7 +677,7 @@ const CaseStudyDetailPage = () => {
         />
 
         {/* Inquiry form — component untouched */}
-        <section className="bg-white pb-24 pt-4">
+        <section className="bg-white pb-8 pt-4">
           <div className="container mx-auto px-6 lg:px-12">
             <CaseStudyInquiryForm caseStudy={caseStudy} />
           </div>
@@ -657,6 +692,14 @@ const CaseStudyDetailPage = () => {
         source={consultationSource}
         onOpenChange={setIsConsultationOpen}
       />
+      {effectiveVideoUrl && (
+        <VideoModal
+          isOpen={isVideoModalOpen}
+          onOpenChange={setIsVideoModalOpen}
+          title={caseStudy.video.placeholderTitle}
+          loomEmbedUrl={effectiveVideoUrl}
+        />
+      )}
     </div>
   );
 };

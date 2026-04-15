@@ -50,6 +50,41 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
+## Configuration
+
+The application uses **StaticForms** to handle form submissions (Consultation Modal and Case Study Inquiries).
+
+### Environment Variables
+
+To enable form submissions, create a `.env` file in the root directory and add your StaticForms Access Key:
+
+```env
+VITE_STATICFORMS_ACCESS_KEY=your_access_key_here
+```
+
+1. Get your access key from [StaticForms](https://www.staticforms.xyz/).
+2. Add it to your local `.env` file.
+3. For production (e.g., Vercel, Netlify), add this variable to your deployment settings.
+
+### Case Study Videos
+
+You can manage the Loom video embeds shown on Case Study detail pages in two ways:
+
+#### 1. Environment Variables (Recommended for Production)
+Add the video URLs to your `.env` file using the case study slug (in uppercase with underscores). This allows you to update videos without redeploying code.
+
+```env
+VITE_LOOM_URL_LEAD_QUALIFICATION_NURTURING=https://www.loom.com/embed/...
+VITE_LOOM_URL_INVOICE_PROCESSING_AP_AUTOMATION=https://www.loom.com/embed/...
+VITE_LOOM_URL_APPOINTMENT_SCHEDULING_REMINDERS=https://www.loom.com/embed/...
+VITE_LOOM_URL_CONTENT_METADATA_DISTRIBUTION=https://www.loom.com/embed/...
+```
+
+#### 2. Data File
+You can also update the `loomEmbedUrl` field directly in [src/data/caseStudies.ts](file:///Users/bleckcorp/IdeaProjects/perceptiveops-marketing/ai-operations-wise/src/data/caseStudies.ts).
+
+Note: The "Watch the Story" button in the hero section will only appear if a video URL is provided via one of these methods.
+
 ## What technologies are used for this project?
 
 This project is built with:
