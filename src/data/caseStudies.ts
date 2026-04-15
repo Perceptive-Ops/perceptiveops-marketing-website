@@ -126,7 +126,7 @@ export const caseStudies: CaseStudy[] = [
       placeholderTitle: "See Universal Lead Qualification in Action",
       placeholderDescription:
         "A walkthrough here can show how a new lead is captured via webhook, qualified by GPT-4, and handed off to HubSpot with a personalized draft ready.",
-      loomEmbedUrl: "https://www.loom.com/embed/7864191660d34208b024b8069502715d",
+      loomEmbedUrl: "https://www.loom.com/embed/87fad9a81d974f70988e0c598876b0ad",
     },
     inquiryContext: {
       subject: "Case Study Inquiry - Universal Lead Intake & AI Qualification",

@@ -29,13 +29,12 @@ const VideoModal = ({
         <div className="relative aspect-video w-full p-2 pb-6 px-6">
           <div className="h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
             <iframe
-              src={`${loomEmbedUrl}?hide_owner=true&hide_share=true&hide_title=true&hide_embed_params=true&autoplay=true`}
-              frameBorder="0"
+              src={`${loomEmbedUrl.replace("/share/", "/embed/")}?hide_owner=true&hide_share=true&hide_title=true&hide_embed_params=true&autoplay=true`}
               webkitallowfullscreen="true"
               mozallowfullscreen="true"
               allowFullScreen
-              allow="autoplay"
-              className="h-full w-full"
+              allow="autoplay; fullscreen"
+              className="h-full w-full border-none"
             />
           </div>
         </div>

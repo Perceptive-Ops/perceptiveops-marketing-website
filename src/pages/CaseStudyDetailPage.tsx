@@ -258,12 +258,11 @@ const WorkflowSection = ({
           <div className="group relative aspect-video overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] shadow-2xl backdrop-blur-md">
             {video.loomEmbedUrl ? (
               <iframe
-                src={`${video.loomEmbedUrl}?hide_owner=true&hide_share=true&hide_title=true&hide_embed_params=true`}
-                frameBorder="0"
+                src={`${video.loomEmbedUrl.replace("/share/", "/embed/")}?hide_owner=true&hide_share=true&hide_title=true&hide_embed_params=true`}
                 webkitallowfullscreen="true"
                 mozallowfullscreen="true"
                 allowFullScreen
-                className="absolute inset-0 h-full w-full"
+                className="absolute inset-0 h-full w-full border-none"
               />
             ) : (
               <div className="flex h-full w-full flex-col items-center justify-center bg-slate-900/50 p-12 text-center">
