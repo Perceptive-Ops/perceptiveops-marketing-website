@@ -79,10 +79,7 @@ VITE_LOOM_URL_INVOICE_PROCESSING_AP_AUTOMATION=https://www.loom.com/embed/...
 VITE_LOOM_URL_APPOINTMENT_SCHEDULING_REMINDERS=https://www.loom.com/embed/...
 VITE_LOOM_URL_CONTENT_METADATA_DISTRIBUTION=https://www.loom.com/embed/...
 ```
-
 #### 2. Data File
-You can also update the `loomEmbedUrl` field directly in [src/data/caseStudies.ts](file:///Users/bleckcorp/IdeaProjects/perceptiveops-marketing/ai-operations-wise/src/data/caseStudies.ts).
-
 Note: The "Watch the Story" button in the hero section will only appear if a video URL is provided via one of these methods.
 
 ## What technologies are used for this project?
