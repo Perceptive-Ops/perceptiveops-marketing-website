@@ -5,7 +5,7 @@ import TrustedBy from "@/components/TrustedBy";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Results from "@/components/Results";
-import CaseStudies from "@/components/CaseStudies";
+import CaseStudiesMarquee from "@/components/CaseStudiesMarquee";
 import TechStack from "@/components/TechStack";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
@@ -29,7 +29,7 @@ const Index = () => {
       <Services />
       <Process onBookConsultation={() => openConsultation("process")} />
       <Results />
-      <CaseStudies />
+      <CaseStudiesMarquee />
       <TechStack />
       <Testimonials />
       <FinalCTA onBookConsultation={() => openConsultation("final-cta")} />
